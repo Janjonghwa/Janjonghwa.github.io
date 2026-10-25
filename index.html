@@ -123,14 +123,15 @@
   .card:hover .thumb::after, .card:focus-visible .thumb::after { opacity: 1; transform: none; }
   @media (hover: none) { .thumb::after { opacity: 1; transform: none; } }
   .thumb .badge { position: absolute; left: 14px; top: 14px; z-index: 1; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--ink); }
+  .thumb .badge.prize { background: rgba(255,244,220,.96); color: var(--gold); }
   .meta { margin: 0; font-size: 13px; color: var(--faint); }
   .meta b { color: var(--sub); font-weight: 600; }
-  .card h3 { margin: 6px 0 0; font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.25; }
+  .card .head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 6px; }
+  .card h3 { margin: 0; font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.25; }
   .card .what { margin: 6px 0 0; font-size: 16px; color: var(--sub); }
   .card ul.did { margin: 18px 0 0; padding: 0; list-style: none; }
   .card ul.did li { position: relative; padding-left: 14px; margin: 6px 0; font-size: 14.5px; }
   .card ul.did li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
-  .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 20px; flex-wrap: wrap; }
   .award { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--gold); background: var(--gold-bg); padding: 5px 12px; border-radius: 8px; }
   .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 0 auto; padding: 0; list-style: none; justify-content: flex-end; }
   .tags li { font-size: 12px; color: var(--sub); padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; }
@@ -623,7 +624,6 @@ const PROJECTS = [
   },
   {
     id: 'vqa',
-    badge: '🏆 1위',
     cover: { img: 'images/vqa-award.jpg', thumb: 'images/thumb/vqa-award.jpg' },
     org: 'SSAFY 15기', team: '5인', period: '2026.04',
     title: 'SSAFY AI 챌린지',
@@ -765,26 +765,25 @@ const PROJECTS = [
   },
   {
     id: 'nbus',
-    badge: '🏆 수상 3회',
     cover: { img: 'images/nbus-cover.jpg', thumb: 'images/thumb/nbus-cover.jpg' },
-    org: '공모전 · 3개 연속 프로젝트', team: '3인 · 2인', period: '2024.03 – 2025.10',
+    org: '공모전 · 3개 연속 프로젝트', team: '2~3인', period: '2024.03 – 2025.10',
     title: '서울시 N버스 연구',
     what: '수요 예측 → 정책 제안 → 신규 노선 설계',
     did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '승차벨·유연환승 등 정책 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
-    award: '서울특별시장상',
+    award: '서울특별시장상 포함 수상 3회',
     tags: ['Python', 'ML', 'QGIS'],
     detail: {
       kicker: '데이터 분석 연구 · 3개 연속 프로젝트',
       sub: '서울시 심야버스(N버스) 공백지역 도출과 노선 제안',
       awards: ['서울특별시장상', '서울시립대 총장상 (대상)', 'GeoAI데이터학회장상 (우수상)'],
-      info: [['기간', '2024.03 – 2025.10'], ['팀 인원', 'STEP 1·2 3인 · STEP 3 2인'], ['기술', 'Python, scikit-learn, DBSCAN, 네트워크 분석, QGIS, ArcGIS']],
+      info: [['기간', '2024.03 – 2025.10'], ['팀 인원', '3인 (STEP 3은 2인)'], ['기술', 'Python, scikit-learn, DBSCAN, 네트워크 분석, QGIS, ArcGIS']],
       overview: [
         'N버스는 2023년 이용객이 전년보다 27% 늘었지만, 노선이 한정돼 수요가 있는데도 버스가 서지 않는 지역이 남아 있습니다. 노선을 새로 만드는 것은 서울시 재정에 부담이 되기 때문에, 어디에 먼저 손을 써야 하는지 데이터로 근거를 만드는 것이 중요했습니다.',
         '같은 문제를 세 번의 프로젝트에 걸쳐 이어서 다뤘습니다. ① 머신러닝으로 공백지역을 찾고, ② 신규 노선 없이 기존 인프라로 해소하는 정책을 제안하고, ③ 실제 이동 데이터(OD)로 신규 노선까지 설계했습니다.'
       ],
       parts: [
         {
-          step: 'STEP 1 · 2024.06', short: '수요 예측', tag: '공백지역 4곳 도출', team: '3인 (김시연 · 박종화 · 함승우)',
+          step: 'STEP 1 · 2024.06', short: '수요 예측', tag: '공백지역 4곳 도출', team: '3인',
           title: '서울시 N버스 정류장 승하차수 예측을 통한 N버스 취약지역 선정',
           award: '제38회 서울시립대 도시과학 공동작품전 우수상 — GeoAI데이터학회장상',
           overview: 'N버스가 서지 않는 정류장의 승하차 수요를 머신러닝으로 예측해, 노선을 늘릴 때 먼저 검토해야 할 취약지역을 찾은 공간 데이터 분석 프로젝트',
@@ -801,7 +800,7 @@ const PROJECTS = [
           ]
         },
         {
-          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인 (김시연 · 박종화 · 함승우)',
+          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인',
           title: '공공데이터 분석을 활용한 N버스 공백지역 도출 및 새로운 노선 제안',
           award: '2024 공공데이터 활용 서울시 아이디어 공모전 대상 — 서울시립대학교 총장상',
           overview: 'STEP 1에서 찾은 공백지역을 신규 노선 없이 기존 인프라로 해소하는 데이터 기반 심야버스 운영 방안 제안',
@@ -818,7 +817,7 @@ const PROJECTS = [
           ]
         },
         {
-          step: 'STEP 3 · 2025.10', short: '노선 설계', tag: '신규 노선 2개', team: '2인 (김시연 · 박종화)',
+          step: 'STEP 3 · 2025.10', short: '노선 설계', tag: '신규 노선 2개', team: '2인',
           title: 'OD 데이터와 인구통계학적 데이터를 활용한 N버스 노선 신설',
           award: '2025 서울시 빅데이터캠퍼스 공모전 특별상 — 서울특별시장상 · 숙명여대 빅데이터혁신융합사업단장상',
           overview: 'STEP 1·2에서 다루지 못한 실제 이동 경로를 야간 OD(출발지–도착지) 데이터로 분석해 심야 이동 수요의 핵심 축을 찾고, 교통망 설계(TNDP) 방법론으로 신규 N버스 노선 2개를 도출한 프로젝트',
@@ -869,17 +868,13 @@ const PROJECTS = [
   document.getElementById('project-list').innerHTML = PROJECTS.map(p => `
     <button class="card reveal" type="button" data-id="${p.id}" aria-label="${esc(p.title)} 자세히 보기">
       <div class="thumb">
-        ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
+        ${p.award ? `<span class="badge prize">🏆 ${esc(p.award)}</span>` : p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
         ${p.cover.video ? loop(p.cover.video, p.cover.poster, 'data-autoplay') : `<img src="${p.cover.thumb}" alt="" loading="lazy">`}
       </div>
       <p class="meta">${esc(p.org)} · <b>${esc(p.team)}</b> · ${esc(p.period)}</p>
-      <h3>${esc(p.title)}</h3>
+      <div class="head"><h3>${esc(p.title)}</h3><ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
       <p class="what">${esc(p.what)}</p>
       <ul class="did">${p.did.map(d => `<li>${esc(d)}</li>`).join('')}</ul>
-      <div class="foot">
-        ${p.award ? `<span class="award">🏆 ${esc(p.award)}</span>` : ''}
-        <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
-      </div>
     </button>`).join('');
 
   // 본문 그림
@@ -910,7 +905,7 @@ const PROJECTS = [
         <span class="step-label">${esc(x.step)} · ${esc(x.short)}</span>
         <h5>${esc(x.title)}</h5>
         <span class="award">🏆 ${esc(x.award)}</span>
-        <p class="part-team">팀 ${esc(x.team)}</p>
+        <p class="part-team">팀 인원 ${esc(x.team)}</p>
         <div class="d-sec"><h4>프로젝트 개요</h4><p>${esc(x.overview)}</p></div>
         <div class="d-sec"><h4>주요 화면</h4>${figs(x.figs)}</div>
         <div class="d-sec"><h4>나의 담당 역할 및 수행 내용</h4>${list(x.role)}</div>
