@@ -82,24 +82,24 @@
   .reveal.in { opacity: 1; transform: none; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 210px 1fr; grid-template-areas: "photo id" "photo edu" ". train"; column-gap: 56px; align-items: start; }
+  .about { display: grid; grid-template-columns: 270px 1fr; grid-template-areas: "photo id" "photo edu" "photo train"; column-gap: 48px; align-items: start; }
   .about .id { grid-area: id; } .about .edu { grid-area: edu; } .about .train { grid-area: train; }
   .photo { grid-area: photo; align-self: stretch; position: relative; border-radius: 12px; background: #e9edf2; overflow: hidden; border: 1px solid var(--line); }
   .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .id { padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
-  .id h3 { margin: 0; font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.1; }
+  .id h3 { margin: 0; font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.1; }
   .id h3 small { margin-left: 10px; font-size: 15px; font-weight: 600; color: var(--sub); letter-spacing: 0; }
-  .id ul { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 12px 0 0; padding: 0; font-size: 14px; }
+  .id ul { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 10px 0 0; padding: 0; font-size: 13.5px; }
   .id li span { color: var(--faint); margin-right: 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
   .id li a { color: var(--ink); border-bottom: 1px solid var(--line); }
-  .tl { display: grid; grid-template-columns: 120px 1fr; gap: 0 24px; padding-top: 22px; }
+  .tl { display: grid; grid-template-columns: 104px 1fr; gap: 0 24px; padding-top: 22px; }
   .tl h4 { margin: 0; padding-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--faint); letter-spacing: .12em; }
   .tl ul { list-style: none; margin: 0; padding: 0; }
-  .tl li { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .tl li { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .tl li:last-child { border-bottom: 0; }
-  .tl li b { color: var(--ink); font-size: 16px; font-weight: 700; }
-  .tl li span { grid-column: 1; font-size: 13.5px; color: var(--sub); }
-  .tl li time { grid-column: 2; grid-row: 1; font-size: 13.5px; color: var(--sub); white-space: nowrap; text-align: right; }
+  .tl li b { color: var(--ink); font-size: 15px; font-weight: 700; }
+  .tl li span { grid-column: 1; font-size: 13px; color: var(--sub); }
+  .tl li time { grid-column: 2; grid-row: 1; font-size: 13px; color: var(--sub); white-space: nowrap; text-align: right; }
   .tl li em { grid-column: 2; grid-row: 2; font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--accent); text-align: right; white-space: nowrap; }
   .tl li em.state { color: var(--sub); font-weight: 600; }
 
@@ -250,13 +250,15 @@
   .d-part h5 { margin: 6px 0 0; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.35; }
   .d-part .award { margin-top: 12px; }
   .d-part .part-team { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+  .d-part .part-team b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+  .d-part .part-team i { font-style: normal; color: var(--line); margin: 0 6px; }
   .d-part .d-sec { margin-top: 26px; }
   .d-part .d-sec h4 { font-size: 16px; }
   .d-part .figs { margin-top: 26px; }
 
   @media (max-width: 900px) {
     .about { grid-template-columns: 1fr; grid-template-areas: "photo" "id" "edu" "train"; row-gap: 0; }
-    .photo { max-width: 160px; aspect-ratio: 3/4; margin-bottom: 28px; }
+    .photo { max-width: 200px; aspect-ratio: 3/4; margin-bottom: 28px; }
   }
   @media (max-width: 680px) {
     .wrap { padding-inline: 18px; }
@@ -350,7 +352,7 @@
           <ul>
             <li><b>삼성청년 SW·AI 아카데미 (SSAFY) 15기</b><time>2026.01 – 현재</time><span>SW·AI 심화 교육과 팀 프로젝트</span><em>1,725시간</em></li>
             <li><b>현대모비스 MOBIUS BOOTCAMP 1기</b><time>2025.09 – 2026.03</time><span>자동차 SW · AUTOSAR · CAN</span><em>160시간</em></li>
-            <li><b>한화비전 VEDA 2기</b><time>2025.03 – 2025.08</time><span>Vision's Edge Device Academy · 임베디드 리눅스 · Qt</span><em>700시간</em></li>
+            <li><b>한화비전 Vision's Edge Device Academy 2기</b><time>2025.03 – 2025.08</time><span>임베디드 리눅스 · Qt</span><em>700시간</em></li>
           </ul>
         </div>
     </div>
@@ -361,10 +363,11 @@
   <div class="wrap">
     <h2 class="sec-title reveal"><small>02</small>Skills</h2>
     <div class="skills reveal">
-      <div><h3>프로그래밍 언어</h3><p>C, C++, Python, TypeScript</p></div>
+      <div><h3>프로그래밍 언어</h3><p>C, C++, C#, Python, TypeScript</p></div>
       <div><h3>AI · 데이터 처리</h3><p>PyTorch, Transformers, OpenCV, TensorRT, ONNX, TFLite, YOLO, VLM(Qwen · InternVL), Grounding DINO, scikit-learn, pandas, FFmpeg</p></div>
-      <div><h3>3D · 공간정보</h3><p>카메라 캘리브레이션, 다중 카메라 3D, SLAM, Blender, QGIS, ArcGIS</p></div>
-      <div><h3>임베디드 개발</h3><p>Jetson Orin Nano, STM32, Raspberry Pi, ROS 2, Nav2, Buildroot / Yocto, Linux Kernel · 디바이스 드라이버, ARM</p></div>
+      <div><h3>3D · 공간정보</h3><p>카메라 캘리브레이션, 다중 카메라 3D, Blender, QGIS, ArcGIS</p></div>
+      <div><h3>임베디드 개발</h3><p>STM32 (ARM Cortex-M), Raspberry Pi, Jetson Orin Nano, Buildroot / Yocto, Linux Kernel · 디바이스 드라이버</p></div>
+      <div><h3>로보틱스</h3><p>ROS 2, Nav2, SLAM Toolbox</p></div>
       <div><h3>네트워크 · 통신</h3><p>TCP/IP, MQTT, RTSP, WebRTC, CAN, I2C, UART, OpenSSL(TLS)</p></div>
       <div><h3>자동차 SW</h3><p>CANoe, CAPL, AUTOSAR, ISO 26262, A-SPICE, MATLAB / Simulink</p></div>
       <div><h3>서비스 · DevOps</h3><p>FastAPI, Django REST, Vue 3, Next.js, Qt / PySide6, Docker, Jenkins, GitLab CI/CD, AWS EC2, Git, Linux</p></div>    </div>
@@ -581,13 +584,13 @@ const PROJECTS = [
   {
     id: 'quadzone',
     cover: { video: V + 'veda-cover.mp4', poster: V + 'veda-cover.jpg' },
-    org: '한화비전 VEDA', team: '4인', period: '2025.06 – 08',
+    org: '한화비전 Vision\'s Edge Device Academy', team: '4인', period: '2025.06 – 08',
     title: '스쿨존 안전 모니터링',
     what: 'CCTV와 센서로 과속·불법주정차·보행자를 감지하는 시스템',
     did: ['Qt 관제 클라이언트 설계와 구현', '번호판 인식·추적 결과로 위반 이벤트 분류', '센서와 AI 데이터를 공유 메모리로 동기화'],
     tags: ['Qt', 'C++', 'MQTT', 'RTSP'],
     detail: {
-      kicker: '한화비전 VEDA(Vision\'s Edge Device Academy) 2기 최종 프로젝트',
+      kicker: '한화비전 Vision\'s Edge Device Academy 2기 최종 프로젝트',
       sub: 'CCTV 기반 스쿨존 안전 모니터링 시스템 (QuadZone)',
       info: [['기간', '2025.06 – 2025.08'], ['팀 인원', '4인'], ['나의 역할', 'Qt 클라이언트 · 이벤트 처리'], ['기술', 'Raspberry Pi 4, STM32, IMX500, ONNX, TFLite, MQTT/TLS, RTSP, Qt']],
       overview: [
@@ -768,12 +771,12 @@ const PROJECTS = [
     title: '서울시 N버스 연구',
     what: '수요 예측 → 정책 제안 → 신규 노선 설계',
     did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '승차벨·유연환승 등 정책 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
-    award: '서울특별시장상 포함 수상 3회',
-    tags: ['Python', 'scikit-learn', 'QGIS'],
+    award: '서울특별시장상 (특별상) 포함 수상 3회',
+    tags: ['Python', 'scikit-learn', 'ArcGIS'],
     detail: {
       kicker: '데이터 분석 연구 · 3개 연속 프로젝트',
       sub: '서울시 심야버스(N버스) 공백지역 도출과 노선 제안',
-      awards: ['서울특별시장상', '서울시립대 총장상 (대상)', 'GeoAI데이터학회장상 (우수상)'],
+      awards: ['서울특별시장상 (특별상)', '서울시립대 총장상 (대상)', 'GeoAI데이터학회장상 (우수상)'],
       info: [['기간', '2024.03 – 2025.10'], ['팀 인원', '3인 (STEP 3은 2인)'], ['기술', 'Python, scikit-learn, DBSCAN, 네트워크 분석, QGIS, ArcGIS']],
       overview: [
         'N버스는 2023년 이용객이 전년보다 27% 늘었지만, 노선이 한정돼 수요가 있는데도 버스가 서지 않는 지역이 남아 있습니다. 노선을 새로 만드는 것은 서울시 재정에 부담이 되기 때문에, 어디에 먼저 손을 써야 하는지 데이터로 근거를 만드는 것이 중요했습니다.',
@@ -781,7 +784,7 @@ const PROJECTS = [
       ],
       parts: [
         {
-          step: 'STEP 1 · 2024.06', short: '수요 예측', tag: '공백지역 4곳 도출', team: '3인',
+          step: 'STEP 1 · 2024.06', short: '수요 예측', tag: '공백지역 4곳 도출', team: '3인', where: '공간정보공학과 종합설계 2 수업',
           title: '서울시 N버스 정류장 승하차수 예측을 통한 N버스 취약지역 선정',
           award: '제38회 서울시립대 도시과학 공동작품전 우수상 — GeoAI데이터학회장상',
           overview: 'N버스가 서지 않는 정류장의 승하차 수요를 머신러닝으로 예측해, 노선을 늘릴 때 먼저 검토해야 할 취약지역을 찾은 공간 데이터 분석 프로젝트',
@@ -798,7 +801,7 @@ const PROJECTS = [
           ]
         },
         {
-          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인',
+          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인', where: '2024 공공데이터 활용 서울시 아이디어 공모전',
           title: '공공데이터 분석을 활용한 N버스 공백지역 도출 및 새로운 노선 제안',
           award: '2024 공공데이터 활용 서울시 아이디어 공모전 대상 — 서울시립대학교 총장상',
           overview: 'STEP 1에서 찾은 공백지역을 신규 노선 없이 기존 인프라로 해소하는 데이터 기반 심야버스 운영 방안 제안',
@@ -815,12 +818,16 @@ const PROJECTS = [
           ]
         },
         {
-          step: 'STEP 3 · 2025.10', short: '노선 설계', tag: '신규 노선 2개', team: '2인',
+          step: 'STEP 3 · 2025.10', short: '노선 설계', tag: '신규 노선 2개', team: '2인', where: '공간정보공학과 종합설계 1 수업 · 2025 서울시 빅데이터캠퍼스 공모전',
           title: 'OD 데이터와 인구통계학적 데이터를 활용한 N버스 노선 신설',
           award: '2025 서울시 빅데이터캠퍼스 공모전 특별상 — 서울특별시장상 · 숙명여대 빅데이터혁신융합사업단장상',
           overview: 'STEP 1·2에서 다루지 못한 실제 이동 경로를 야간 OD(출발지–도착지) 데이터로 분석해 심야 이동 수요의 핵심 축을 찾고, 교통망 설계(TNDP) 방법론으로 신규 N버스 노선 2개를 도출한 프로젝트',
-          figs: [{ pair: ['images/nbusC-hub.jpg', 'images/nbusC-r05.jpg'], title: '거점 선정과 두 번째 신규 노선',
-            desc: '이동량·잠재수요·매개 중심성을 합친 HubScore로 거점 후보를 고르고(왼쪽), 거점을 잇는 두 번째 노선 R05(구로디지털단지↔수유)를 기존 노선 위에 표시했습니다(오른쪽). 맨 위 그림은 야간 OD 백본 네트워크와 첫 번째 노선 R26입니다.' }],
+          figs: [
+            { pair: ['images/nbusC-backbone.jpg', 'images/nbusC-hub.jpg'], title: '야간 이동망과 거점 선정',
+              desc: '22시~08시 OD 데이터로 야간 이동의 핵심 축(백본 네트워크)을 만들고(왼쪽), 이동량·잠재수요·매개 중심성을 합친 HubScore로 거점 정류장을 골랐습니다(오른쪽).' },
+            { pair: ['images/nbusC-r26.jpg', 'images/nbusC-r05.jpg'], title: '신규 노선 2개 — R26 · R05',
+              desc: '거점을 잇는 두 노선을 기존 N버스 노선(회색) 위에 표시했습니다. 왼쪽 R26 고속터미널↔수유, 오른쪽 R05 구로디지털단지↔수유.' }
+          ],
           role: [
             '야간 OD·카드소비·생활인구·건물 데이터를 결합하고, 랜덤포레스트로 미정차 정류장 수요 예측(R² 0.98)',
             '이동량·잠재수요·매개 중심성을 합친 HubScore로 거점 정류장 선정',
@@ -906,7 +913,7 @@ const PROJECTS = [
         <span class="step-label">${esc(x.step)} · ${esc(x.short)}</span>
         <h5>${esc(x.title)}</h5>
         <span class="award">🏆 ${esc(x.award)}</span>
-        <p class="part-team">팀 인원 ${esc(x.team)}</p>
+        <p class="part-team"><b>진행</b> ${esc(x.where)} <i>|</i> <b>팀 인원</b> ${esc(x.team)}</p>
         <div class="d-sec"><h4>프로젝트 개요</h4><p>${esc(x.overview)}</p></div>
         <div class="d-sec"><h4>주요 화면</h4>${figs(x.figs)}</div>
         <div class="d-sec"><h4>나의 담당 역할 및 수행 내용</h4>${list(x.role)}</div>
