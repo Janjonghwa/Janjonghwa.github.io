@@ -468,12 +468,11 @@ const PROJECTS = [
     cover: { img: 'images/simai-cover.jpg', thumb: 'images/thumb/simai-cover.jpg' },
     org: 'SSAFY 자율 프로젝트', team: '6인', period: '2026.10 – 현재',
     title: 'SimAI',
-    what: '카메라 4대로 작업자를 3D 추적하는 건설 안전 관제 플랫폼',
+    what: '카메라 4대로 작업자를 3D 추적하는 맥락 인지형 건설 안전 관제 플랫폼',
     did: ['카메라 4대의 영상을 하나의 3D 좌표로 합치는 추적 파이프라인 구현', '위험 구역 진입, 고소 작업, 낙상 의심 등 위험 판정 규칙 구현', '최대 10명을 실시간으로 처리하는 계산 구조 설계'],
     tags: ['Python', 'NumPy', 'OpenCV', 'Docker'],
     detail: {
-      kicker: 'SSAFY 15기 자율 프로젝트',
-      sub: '맥락 인지형 스마트 건설 안전 관제 플랫폼 (Smart Integrated Monitoring AI)',
+      kicker: 'SSAFY 15기 자율 프로젝트 · Smart Integrated Monitoring AI',
       info: [['기간', '2026.10 – 진행 중'], ['팀 인원', '6인'], ['나의 역할', '3D 추적 · 위험 판정 · 개발 인프라'], ['기술', 'Python, OpenCV, YOLO26-pose, TensorRT, FastAPI, Docker, Jenkins']],
       overview: [
         '건설 현장 사망사고의 52.3%는 떨어짐 사고입니다(국토안전관리원, 2025). 기존 CCTV 기반 비전 AI는 사람이 "어디에 있는지"는 알아도 높이와 맥락을 읽지 못해, 개구부까지 몇 m인지 같은 판단을 하지 못하고 오탐 때문에 경보가 꺼지는 일이 잦습니다.',
@@ -506,12 +505,11 @@ const PROJECTS = [
     cover: { video: V + 'sentinel-cover.mp4', poster: V + 'sentinel-cover.jpg' },
     org: 'SSAFY AIoT 프로젝트', team: '6인', period: '2026.07 – 08',
     title: 'Sentinel UGV',
-    what: '재난 현장을 먼저 탐사하는 자율주행 구조 지원 로봇',
+    what: '재난 현장을 먼저 탐사하는 자율주행 구조 지원 로봇(UGV)',
     did: ['LiDAR SLAM과 Nav2로 미지 공간 자율 탐사 구현', '사람 발견부터 접근·대화·보고까지 임무 흐름 제어', '통신이 끊기면 차량을 멈추는 안전 체인 구성'],
     tags: ['ROS 2', 'Nav2', 'SLAM', 'Jetson'],
     detail: {
       kicker: 'SSAFY 15기 AIoT 프로젝트',
-      sub: '자율주행 AI 재난 탐사 UGV',
       info: [['기간', '2026.07.14 – 2026.08.11'], ['팀 인원', '6인 (HW 2 · 비전 AI · 음성 AI · 백엔드 · 로봇 SW)'], ['나의 역할', 'Robot SW · ROS 2'], ['기술', 'ROS 2 Humble, Nav2, SLAM Toolbox, Jetson Orin Nano, ESP32, GitLab CI']],
       overview: [
         '붕괴 건물처럼 구조대가 바로 들어가기 위험한 현장에서는 진입 전에 통로 상태, 요구조자의 위치와 상태, 2차 위험을 알기 어렵습니다.',
@@ -549,12 +547,11 @@ const PROJECTS = [
     cover: { video: V + 'pave-cover.mp4', poster: V + 'pave-cover.jpg' },
     org: 'SSAFY 특화 프로젝트', team: '5인', period: '2026.08 – 09',
     title: 'PAVE',
-    what: '자율주행 알고리즘을 같은 조건에서 반복 검증하는 플랫폼',
+    what: '자율주행 알고리즘을 같은 시나리오·같은 조건에서 반복 검증하는 플랫폼',
     did: ['PySide6 + QML 기반 실험·관제 GUI 설계와 구현', '실험 설정부터 주행·결과 확인까지 한 화면 흐름 구성', '더블클릭 한 번으로 끝나는 Windows 설치·실행기 제작'],
     tags: ['PySide6', 'QML', 'ROS 2', 'WSL'],
     detail: {
-      kicker: 'SSAFY 15기 특화 프로젝트',
-      sub: 'Platform for Autonomous Vehicle Evaluation — 시나리오 기반 자율주행 안전성 검증·관제 플랫폼',
+      kicker: 'SSAFY 15기 특화 프로젝트 · Platform for Autonomous Vehicle Evaluation',
       info: [['기간', '2026.08.25 – 2026.09.29'], ['팀 인원', '5인'], ['나의 역할', 'GUI · 배포 인프라'], ['기술', 'PySide6, Qt Quick/QML, ROS 2, CARLA, WSL, GitLab CI']],
       overview: [
         '자율주행 알고리즘은 기업·팀마다 검증 환경과 기준이 달라, 같은 알고리즘이라도 어떤 조건에서 돌렸는지에 따라 결과를 비교하기 어렵습니다.',
@@ -597,7 +594,6 @@ const PROJECTS = [
     tags: ['Qt', 'C++', 'MQTT', 'RTSP'],
     detail: {
       kicker: '한화비전 Vision\'s Edge Device Academy 2기 최종 프로젝트',
-      sub: 'CCTV와 센서로 과속·불법주정차·보행자를 감지하는 스쿨존 안전 모니터링 시스템',
       info: [['기간', '2025.06 – 2025.08'], ['팀 인원', '4인'], ['나의 역할', 'Qt 클라이언트 · 이벤트 처리'], ['기술', 'Raspberry Pi 4, STM32, IMX500, ONNX, TFLite, MQTT/TLS, RTSP, Qt']],
       overview: [
         '민식이법 이후에도 스쿨존 사고는 연 480건 이상 발생합니다. 불법 주정차 차량에 가려 아이를 늦게 보거나 과속하는 경우가 많지만, 단속 인력은 부족하고 CCTV는 사람이 직접 돌려봐야 해 실시간 대응이 어렵습니다.',
@@ -634,13 +630,12 @@ const PROJECTS = [
     cover: { img: 'images/vqa-award.jpg', thumb: 'images/thumb/vqa-award.jpg' },
     org: 'SSAFY 15기', team: '5인', period: '2026.04',
     title: 'SSAFY AI 챌린지',
-    what: '재활용품 사진에 대한 질문에 답하는 비전-언어 모델',
+    what: '재활용품 사진에 대한 질문에 답하는 비전-언어(VQA) 모델',
     did: ['보기 순서를 바꿔 추론하는 TTA 실험', '모델별 예측 결과 비교와 최종 모델 선정', '질문 유형별 프롬프트 설계'],
     award: '최우수상 · 192팀 중 1위',
     tags: ['Python', 'Qwen', 'InternVL'],
     detail: {
       kicker: 'SSAFY 15기 AI 챌린지',
-      sub: '재활용품 이미지 기반 VQA(시각 질의응답) 모델',
       awards: ['최우수상 · 192팀 중 전국 1위'],
       info: [['기간', '2026.04.01 – 04.06 (6일)'], ['팀 인원', '5인'], ['나의 역할', 'TTA 실험 · 모델 선정 · 프롬프트'], ['기술', 'Qwen, InternVL, LoRA/QLoRA, Grounding DINO, SAM']],
       overview: [
@@ -670,13 +665,12 @@ const PROJECTS = [
     cover: { video: V + 'heogaon-cover.mp4', poster: V + 'heogaon-cover.jpg' },
     org: 'SSAFY × 카카오테크 AI 해커톤', team: '6인', period: '2026.06',
     title: '허가온',
-    what: '창업 계획으로 필요한 인허가를 안내하는 AI 서비스',
+    what: '소상공인의 창업 계획으로 필요한 인허가를 사전 진단하는 AI 서비스',
     did: ['Next.js와 FastAPI 연동, 화면 흐름 구현', '주소·건축물대장 공공 API 연동과 EC2 배포'],
     award: '본선 진출 · 103팀 중 6팀',
     tags: ['Next.js', 'FastAPI', 'AWS EC2'],
     detail: {
       kicker: 'SSAFY × 카카오테크 AI 해커톤',
-      sub: '소상공인을 위한 AI 인허가 사전진단 서비스',
       awards: ['본선 진출 · 103팀 중 6팀'],
       info: [['기간', '2026.06'], ['팀 인원', '6인'], ['나의 역할', '프론트–백엔드 연동 · 외부 API · 배포'], ['기술', 'Next.js, FastAPI, 지식 그래프, AWS EC2']],
       overview: [
@@ -708,12 +702,11 @@ const PROJECTS = [
     cover: { img: 'images/alphapick-3.jpg', thumb: 'images/thumb/alphapick-3.jpg' },
     org: 'SSAFY 관통 프로젝트', team: '2인 · 팀장', period: '2026.05 – 06',
     title: 'AlphaPick',
-    what: '정량 지표 기반 국내 주식 스크리닝 서비스',
+    what: '정량 지표 기반 국내 주식 분석·스크리닝 서비스',
     did: ['팀장으로 사용자 흐름과 UI/UX 설계', '스크리닝 대시보드와 종목 리포트 구현', 'AI 종목 코멘트에 응답 검증과 캐시 적용'],
     tags: ['Vue 3', 'Tailwind CSS', 'Django REST'],
     detail: {
       kicker: 'SSAFY 15기 관통 프로젝트',
-      sub: '정량 데이터 기반 국내 주식 분석·스크리닝 서비스',
       info: [['기간', '2026.05 – 2026.06'], ['팀 인원', '2인'], ['나의 역할', '팀장 · 프론트엔드 · AI 기능'], ['기술', 'Vue 3, Vite, Tailwind CSS, Django REST Framework, SQLite']],
       overview: [
         '종목 추천 서비스는 "왜 이 종목인지" 근거를 충분히 보여주지 않고, 회사 가치와 매수 타이밍을 섞어 판단하게 만드는 경우가 많습니다.',
@@ -745,7 +738,6 @@ const PROJECTS = [
     tags: ['Python', 'CANoe', 'CAPL', 'Oracle DB'],
     detail: {
       kicker: '현대모비스 MOBIUS BOOTCAMP 1기 PBL',
-      sub: '하드웨어 교체 없이 차량 기능을 구독·업데이트하는 클라우드 기반 FoD·OTA 서비스',
       info: [['기간', '2026.01 – 2026.03'], ['팀 인원', '4인'], ['나의 역할', '기능 구매부 (C · Python · DB · CANoe)'], ['기술', 'CANoe, CAPL, Python, Oracle DB, AWS, Docker']],
       overview: [
         '기존에는 차량 기능을 바꾸거나 고치려면 서비스센터에 입고해야 했지만, SDV(소프트웨어 중심 차량)에서는 출고 후에도 OTA로 기능을 더하고 고칩니다. 기능을 필요할 때 구독하는 FoD(Feature on Demand)는 이 흐름의 핵심 수익 모델입니다.',
@@ -775,13 +767,12 @@ const PROJECTS = [
     cover: { img: 'images/nbus-routes.jpg', thumb: 'images/thumb/nbus-routes.jpg' },
     org: '공모전 · 3개 연속 프로젝트', team: '2~3인', period: '2024.03 – 2025.10',
     title: '서울시 N버스 연구',
-    what: '수요 예측 → 정책 제안 → 신규 노선 설계',
+    what: '심야버스 공백지역 연구 · 수요 예측 → 정책 제안 → 신규 노선 설계',
     did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '노선 수정·승차벨·유연환승 3가지 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
     award: '서울특별시장상 (특별상) 포함 수상 3회',
     tags: ['Python', 'scikit-learn', 'ArcGIS'],
     detail: {
       kicker: '데이터 분석 연구 · 3개 연속 프로젝트',
-      sub: '서울시 심야버스(N버스) 공백지역 도출과 노선 제안',
       awards: ['서울특별시장상 (특별상)', '서울시립대 총장상 (대상)', 'GeoAI데이터학회장상 (우수상)'],
       info: [['기간', '2024.03 – 2025.10'], ['팀 인원', '3인 (STEP 3은 2인)'], ['기술', 'Python, scikit-learn, DBSCAN, 네트워크 분석, QGIS, ArcGIS']],
       overview: [
@@ -935,7 +926,7 @@ const PROJECTS = [
       <div class="d-body">
         <p class="d-kicker">${esc(d.kicker)}</p>
         <h3 class="d-title" id="d-title">${esc(p.title)}</h3>
-        <p class="d-sub">${esc(d.sub)}</p>
+        <p class="d-sub">${esc(p.what)}</p>
         ${d.awards ? `<div class="d-awards">${d.awards.map(a => `<span class="award">🏆 ${esc(a)}</span>`).join('')}</div>` : ''}
         <dl class="d-meta">${d.info.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
         ${d.links.length ? `<div class="d-links">${d.links.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join('')}</div>` : ''}
