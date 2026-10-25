@@ -209,6 +209,7 @@
   .d-sec > .figs { margin-top: 6px; }
   .fig { margin: 0; display: grid; gap: 12px; }
   .fig.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .fig.trio { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
   .fig .media { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--soft); }
   .fig button.media { cursor: zoom-in; }
   .fig .media img, .fig .media video { width: 100%; }
@@ -770,7 +771,7 @@ const PROJECTS = [
     org: '공모전 · 3개 연속 프로젝트', team: '2~3인', period: '2024.03 – 2025.10',
     title: '서울시 N버스 연구',
     what: '수요 예측 → 정책 제안 → 신규 노선 설계',
-    did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '승차벨·유연환승 등 정책 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
+    did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '노선 수정·승차벨·유연환승 3가지 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
     award: '서울특별시장상 (특별상) 포함 수상 3회',
     tags: ['Python', 'scikit-learn', 'ArcGIS'],
     detail: {
@@ -789,7 +790,9 @@ const PROJECTS = [
           award: '제38회 서울시립대 도시과학 공동작품전 우수상 — GeoAI데이터학회장상',
           overview: 'N버스가 서지 않는 정류장의 승하차 수요를 머신러닝으로 예측해, 노선을 늘릴 때 먼저 검토해야 할 취약지역을 찾은 공간 데이터 분석 프로젝트',
           figs: [{ pair: ['images/nbusA-model.jpg', 'images/nbusA-cluster.jpg'], title: '수요 예측과 군집 분석',
-            desc: '세 모델 중 랜덤포레스트로 미정차 정류장의 승하차를 예측하고(왼쪽), 예측 상위 1% 정류장 63곳을 DBSCAN으로 묶어 밀집 지역을 찾았습니다(오른쪽).' }],
+            desc: '세 모델 중 랜덤포레스트로 미정차 정류장의 승하차를 예측하고(왼쪽), 예측 상위 1% 정류장 63곳을 DBSCAN으로 묶어 밀집 지역을 찾았습니다(오른쪽).' },
+            { src: 'images/nbusA-result.jpg', title: '선정 결과 — 취약지역 4곳',
+              desc: '강남구 신사동, 성동구 성수동, 영등포구 문래동, 금천구 가산동을 N버스 취약지역으로 선정했습니다.' }],
           role: [
             '공공데이터 포털을 활용해 생활인구, 용도별 건물 면적, 대학·상급병원·응급실까지의 거리 등 정류장별 속성 데이터 수집과 전처리',
             '선형회귀·랜덤포레스트·부스팅 모델을 비교해 랜덤포레스트 선정(R² 0.53)과 하이퍼파라미터 튜닝',
@@ -801,12 +804,12 @@ const PROJECTS = [
           ]
         },
         {
-          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인', where: '2024 공공데이터 활용 서울시 아이디어 공모전',
+          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '노선 수정 · 승차벨 · 유연환승', team: '3인', where: '2024 공공데이터 활용 서울시 아이디어 공모전',
           title: '공공데이터 분석을 활용한 N버스 공백지역 도출 및 새로운 노선 제안',
           award: '2024 공공데이터 활용 서울시 아이디어 공모전 대상 — 서울시립대학교 총장상',
           overview: 'STEP 1에서 찾은 공백지역을 신규 노선 없이 기존 인프라로 해소하는 데이터 기반 심야버스 운영 방안 제안',
-          figs: [{ pair: ['images/nbusB-bell.jpg', 'images/nbusB-transfer.jpg'], title: '승차벨과 유연환승',
-            desc: '승차 요청이 있을 때만 공백지역을 경유하는 승차벨(왼쪽), 환승이 많은 신촌오거리·동교동삼거리·종로2가에서 배차를 맞추는 유연환승(오른쪽)을 제안했습니다.' }],
+          figs: [{ pair: ['images/nbusB-route.jpg', 'images/nbusB-bell.jpg', 'images/nbusB-transfer.jpg'], title: '공백지역 솔루션 3가지',
+            desc: '① 기존 N버스 경로를 고쳐 공백지역 정류장을 경유하는 노선 수정, ② 승차 요청이 있을 때만 공백지역을 들르는 승차벨, ③ 환승이 많은 신촌오거리·동교동삼거리·종로2가에서 배차를 맞추는 유연환승을 제안했습니다.' }],
           role: [
             '공공데이터 포털을 활용한 정류장별 교통 데이터 수집과 전처리',
             '미정차 정류장 수요 예측과 군집 분석으로 공백지역 도출',
@@ -892,7 +895,7 @@ const PROJECTS = [
       : f.pair ? f.pair.map(s => zoom(s, f.title)).join('')
       : f.quiz ? `${zoom(f.quiz.img, f.title)}<div class="quiz"><small>QUESTION</small><p>${esc(f.quiz.q)}</p><ol>${f.quiz.opts.map((o, i) => `<li${i === f.quiz.ans ? ' class="ans"' : ''}><span>${'abcd'[i]}</span>${esc(o)}${i === f.quiz.ans ? '<em>정답</em>' : ''}</li>`).join('')}</ol></div>`
       : zoom(f.src, f.title);
-    return `<figure class="fig${f.pair || f.quiz ? ' pair' : ''}">${media}<figcaption><b>${esc(f.title)}</b>${esc(f.desc)}${f.mine ? `<span class="mine">${esc(f.mine)}</span>` : ''}</figcaption></figure>`;
+    return `<figure class="fig${f.pair || f.quiz ? ' pair' : ''}${f.pair && f.pair.length === 3 ? ' trio' : ''}">${media}<figcaption><b>${esc(f.title)}</b>${esc(f.desc)}${f.mine ? `<span class="mine">${esc(f.mine)}</span>` : ''}</figcaption></figure>`;
   };
   const figs = arr => arr && arr.length ? `<div class="figs">${arr.map(fig).join('')}</div>` : '';
   // 맨 위 영상도 본문에서 다시 설명 → '시연 및 주요 화면' 섹션으로 묶음
