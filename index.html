@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>박종화 포트폴리오</title>
+<meta name="description" content="SW · AI 엔지니어 박종화 — 다중 카메라 3D 추적, 자율주행 로봇, 실시간 관제 시스템 프로젝트 포트폴리오">
+<meta property="og:title" content="박종화 | SW · AI Engineer 포트폴리오">
+<meta property="og:description" content="SimAI · PAVE · Sentinel UGV 등 9개 프로젝트 — 다중 카메라 3D 추적, 자율주행 로봇, 실시간 관제">
+<meta property="og:image" content="https://janjonghwa.pages.dev/images/simai-cover.jpg">
+<meta property="og:url" content="https://janjonghwa.pages.dev/">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --ink: #111418;
+    --body: #3a424c;
+    --sub: #6b7480;
+    --faint: #a0a7b0;
+    --line: #e6e8eb;
+    --bg: #ffffff;
+    --soft: #f5f6f8;
+    --accent: #2f6fed;
+    --accent-soft: #eaf1fe;
+    --gold: #a86a00;
+    --gold-bg: #fff4dc;
+    --dark: #0d1015;
+    --dark-line: #262c35;
+    --nav-h: 60px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+  body {
+    margin: 0; background: var(--bg); color: var(--body);
+    font: 15px/1.7 "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    word-break: keep-all; -webkit-font-smoothing: antialiased;
+  }
+  body.locked { overflow: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img, video { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
+
+  /* 내비게이션 */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    padding-top: env(safe-area-inset-top, 0px);
+    color: #fff; border-bottom: 1px solid transparent; transition: background .3s, color .3s, border-color .3s;
+  }
+  .nav.scrolled { background: rgba(255,255,255,.9); backdrop-filter: blur(12px); color: var(--ink); border-color: var(--line); }
+  .nav .wrap { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; }
+  .nav .logo { font-weight: 800; letter-spacing: .06em; font-size: 14px; }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 13px; letter-spacing: .06em; }
+  .nav ul a { opacity: .55; transition: opacity .2s; }
+  .nav ul a:hover, .nav ul a.active { opacity: 1; }
+  .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--accent); }
+
+  /* 히어로 */
+  .hero {
+    position: relative; min-height: 100vh; min-height: 100svh; background: var(--dark); color: #fff;
+    display: flex; align-items: center; overflow: hidden;
+    padding-block: calc(var(--nav-h) + 40px) 90px;
+  }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero .wrap { position: relative; width: 100%; }
+  .hero .role { margin: 0; font-size: 14px; letter-spacing: .18em; color: #8fa3bd; opacity: 0; animation: fade .8s .2s forwards; }
+  .hero h1 { margin: 18px 0 0; font-size: clamp(56px, 11vw, 140px); line-height: .95; font-weight: 800; letter-spacing: -.035em; }
+  .hero h1 .line { display: block; overflow: hidden; }
+  .hero h1 .line > span { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.7,.1,1) forwards; }
+  .hero h1 .line:nth-child(2) > span { animation-delay: .1s; }
+  .hero .contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; opacity: 0; animation: fade .8s .5s forwards; }
+  .hero .contact a { font-size: 14px; padding: 9px 18px; border: 1px solid var(--dark-line); border-radius: 999px; color: #d5dbe3; transition: border-color .2s, background .2s; }
+  .hero .contact a:hover { border-color: #4a5463; background: #161a21; }
+  @keyframes rise { to { transform: none; } }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  /* 섹션 공통 */
+  section.block { padding: 120px 0; }
+  section.alt { background: var(--soft); }
+  .sec-title { margin: 0 0 56px; font-size: clamp(36px, 5vw, 52px); font-weight: 800; color: var(--ink); letter-spacing: -.03em; line-height: 1; }
+  .sec-title small { display: block; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .14em; margin-bottom: 14px; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.1,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 210px 1fr; gap: 56px; align-items: start; }
+  .photo { width: 100%; aspect-ratio: 3/4; border-radius: 12px; background: #e9edf2; overflow: hidden; border: 1px solid var(--line); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .id { padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
+  .id h3 { margin: 0; font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.1; }
+  .id h3 small { margin-left: 10px; font-size: 15px; font-weight: 600; color: var(--sub); letter-spacing: 0; }
+  .id ul { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 12px 0 0; padding: 0; font-size: 14px; }
+  .id li span { color: var(--faint); margin-right: 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+  .id li a { color: var(--ink); border-bottom: 1px solid var(--line); }
+  .tl { display: grid; grid-template-columns: 120px 1fr; gap: 0 24px; padding-top: 22px; }
+  .tl h4 { margin: 0; padding-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--faint); letter-spacing: .12em; }
+  .tl ul { list-style: none; margin: 0; padding: 0; }
+  .tl li { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .tl li:last-child { border-bottom: 0; }
+  .tl li b { color: var(--ink); font-size: 16px; font-weight: 700; }
+  .tl li span { grid-column: 1; font-size: 13.5px; color: var(--sub); }
+  .tl li time { grid-column: 2; grid-row: 1; font-size: 13.5px; color: var(--sub); white-space: nowrap; text-align: right; }
+  .tl li em { grid-column: 2; grid-row: 2; font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--accent); text-align: right; white-space: nowrap; }
+
+  /* Skills */
+  .skills { border-top: 2px solid var(--ink); }
+  .skills > div { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .skills h3 { margin: 0; font-size: 16px; color: var(--ink); }
+  .skills p { margin: 0; color: var(--body); }
+
+  /* Project cards */
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; }
+  .card { display: flex; flex-direction: column; cursor: pointer; border: 0; padding: 0; background: none; text-align: left; font: inherit; color: inherit; }
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 14px; }
+  .thumb { position: relative; aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; margin-bottom: 22px; background: #1a2230; width: 100%; }
+  .thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.1,1); }
+  .thumb::after {
+    content: "자세히 보기 →"; position: absolute; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; background: rgba(17,20,24,.82); color: #fff;
+    opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s;
+  }
+  .card:hover .thumb img, .card:hover .thumb video { transform: scale(1.04); }
+  .card:hover .thumb::after, .card:focus-visible .thumb::after { opacity: 1; transform: none; }
+  @media (hover: none) { .thumb::after { opacity: 1; transform: none; } }
+  .thumb .badge { position: absolute; left: 14px; top: 14px; z-index: 1; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--ink); }
+  .meta { margin: 0; font-size: 13px; color: var(--faint); }
+  .meta b { color: var(--sub); font-weight: 600; }
+  .card h3 { margin: 6px 0 0; font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.25; }
+  .card .what { margin: 6px 0 0; font-size: 16px; color: var(--sub); }
+  .card ul.did { margin: 18px 0 0; padding: 0; list-style: none; }
+  .card ul.did li { position: relative; padding-left: 14px; margin: 6px 0; font-size: 14.5px; }
+  .card ul.did li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 20px; flex-wrap: wrap; }
+  .award { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--gold); background: var(--gold-bg); padding: 5px 12px; border-radius: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 0 auto; padding: 0; list-style: none; justify-content: flex-end; }
+  .tags li { font-size: 12px; color: var(--sub); padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; }
+
+  /* History */
+  .history { border-top: 2px solid var(--ink); }
+  .history > div { display: grid; grid-template-columns: 200px 1fr; gap: 0 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .history > div:last-child { border-bottom: 0; }
+  .history h3 { margin: 0; padding-top: 14px; font-size: 13px; font-weight: 700; color: var(--faint); letter-spacing: .12em; }
+  .history li:last-child { border-bottom: 0; }
+  .history ul { list-style: none; margin: 0; padding: 0; }
+  .history li { display: grid; grid-template-columns: 1fr auto; gap: 3px 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .history li b { color: var(--ink); font-size: 15px; font-weight: 600; }
+  .history li time { grid-column: 2; grid-row: 1; font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+  .history li span { grid-column: 1 / -1; font-size: 13px; color: var(--sub); }
+
+  /* 마무리 · 연락 */
+  .closing { padding: 110px 0 0; background: var(--bg); overflow: hidden; }
+  .closing .wrap { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: end; }
+  .closing h2 { margin: 0; font-size: clamp(34px, 5vw, 56px); color: var(--ink); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
+  .closing p { margin: 16px 0 0; color: var(--sub); font-size: 16px; }
+  .closing .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 110px; }
+  .closing .links a { padding: 11px 20px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--ink); transition: border-color .2s, background .2s; }
+  .closing .links a:hover { border-color: var(--ink); background: var(--soft); }
+  .closing .bow { align-self: end; }
+  .closing .bow img { width: 100%; max-width: 300px; margin-left: auto; mix-blend-mode: multiply; }
+  footer { background: var(--dark); color: #69727e; padding: 22px 0 calc(22px + env(safe-area-inset-bottom, 0px)); font-size: 12px; }
+
+  /* ───────── 상세 모달 ───────── */
+  .modal { position: fixed; inset: 0; z-index: 100; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; overscroll-behavior: contain; padding: 48px 20px; }
+  .modal[hidden] { display: none !important; }
+  .modal .backdrop { position: fixed; inset: 0; background: rgba(10,12,16,.62); backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s; }
+  .modal .sheet {
+    position: relative; width: 100%; max-width: 900px; background: var(--bg); border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.3); opacity: 0; transform: translateY(40px) scale(.98);
+    transition: opacity .35s ease, transform .45s cubic-bezier(.2,.7,.1,1);
+  }
+  .modal.open .backdrop { opacity: 1; }
+  .modal.open .sheet { opacity: 1; transform: none; }
+  .modal .close {
+    position: absolute; right: 16px; top: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+    background: rgba(17,20,24,.72); color: #fff; font-size: 20px; line-height: 1; display: grid; place-items: center;
+  }
+  .modal .close:hover { background: #111418; }
+  .d-hero { aspect-ratio: 16/10; background: #1a2230; }
+  .d-hero img, .d-hero video { width: 100%; height: 100%; object-fit: cover; }
+  .d-body { padding: 40px 48px 48px; }
+  .d-kicker { margin: 0; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+  .d-title { margin: 8px 0 0; font-size: clamp(28px, 4vw, 38px); font-weight: 800; color: var(--ink); letter-spacing: -.03em; line-height: 1.2; }
+  .d-sub { margin: 8px 0 0; font-size: 17px; color: var(--sub); }
+  .d-awards { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .d-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; margin: 28px 0 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .d-meta dt { font-size: 12px; font-weight: 700; color: var(--faint); letter-spacing: .1em; }
+  .d-meta dd { margin: 2px 0 0; font-size: 14.5px; color: var(--ink); }
+  .d-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .d-links a { font-size: 13.5px; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); transition: border-color .2s, background .2s; }
+  .d-links a:hover { border-color: var(--ink); background: var(--soft); }
+  .d-sec { margin-top: 40px; }
+  .d-sec h4 { margin: 0 0 12px; font-size: 19px; font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
+  .d-sec p { margin: 0 0 10px; font-size: 15.5px; }
+  .d-sec p:last-child { margin-bottom: 0; }
+  .d-sec ul { margin: 0; padding-left: 0; list-style: none; }
+  .d-sec li { position: relative; padding-left: 16px; margin: 8px 0; font-size: 15px; }
+  .d-sec li::before { content: ""; position: absolute; left: 0; top: .75em; width: 6px; height: 2px; background: var(--accent); }
+  .d-sec li b { color: var(--ink); font-weight: 700; }
+  .glance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 4px 0 20px; }
+  .glance div { background: var(--soft); border-radius: 10px; padding: 12px 16px; }
+  .glance dt { font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: .06em; }
+  .glance dd { margin: 3px 0 0; font-size: 14.5px; color: var(--ink); line-height: 1.55; }
+  .d-note { margin-top: 12px; font-size: 13.5px; color: var(--sub); background: var(--soft); padding: 14px 16px; border-radius: 10px; }
+
+  /* 본문 속 그림 */
+  .figs { display: grid; gap: 28px; margin-top: 36px; }
+  .d-sec > .figs { margin-top: 6px; }
+  .fig { margin: 0; display: grid; gap: 12px; }
+  .fig.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .fig .media { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--soft); }
+  .fig button.media { cursor: zoom-in; }
+  .fig .media img, .fig .media video { width: 100%; }
+  .fig figcaption { grid-column: 1 / -1; font-size: 14px; color: var(--body); background: var(--soft); border-radius: 10px; padding: 12px 16px; }
+  .fig figcaption b { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 2px; }
+  .fig figcaption .mine { display: block; margin-top: 6px; color: var(--accent); font-weight: 600; font-size: 13.5px; }
+
+  /* 크게 보기 */
+  .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(8,10,13,.92); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 56px 64px 32px; }
+  .lightbox[hidden] { display: none !important; }
+  .lightbox img { max-height: calc(100vh - 140px); width: auto; border-radius: 8px; }
+  .lightbox p { color: #d5dbe3; font-size: 14px; margin: 14px 0 0; text-align: center; }
+  .lightbox button { position: absolute; border: 0; cursor: pointer; background: rgba(255,255,255,.12); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 20px; }
+  .lightbox button:hover { background: rgba(255,255,255,.24); }
+  .lightbox .lb-close { right: 18px; top: calc(14px + env(safe-area-inset-top, 0px)); }
+  .lightbox .lb-prev { left: 14px; top: 50%; }
+  .lightbox .lb-next { right: 14px; top: 50%; }
+
+  /* N버스 3단계 */
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 32px; }
+  .steps a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s, background .2s; }
+  .steps a:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .steps small { display: block; font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: .08em; }
+  .steps b { display: block; font-size: 15px; color: var(--ink); margin-top: 2px; }
+  .steps span { display: block; font-size: 12.5px; color: var(--sub); }
+  .d-part { margin-top: 56px; padding-top: 28px; border-top: 2px solid var(--ink); scroll-margin-top: 20px; }
+  .d-part .step-label { font-size: 12.5px; font-weight: 800; color: var(--accent); letter-spacing: .08em; }
+  .d-part h5 { margin: 6px 0 0; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.35; }
+  .d-part .award { margin-top: 12px; }
+  .d-part .part-team { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+  .d-part .d-sec { margin-top: 26px; }
+  .d-part .d-sec h4 { font-size: 16px; }
+  .d-part .figs { margin-top: 26px; }
+
+  @media (max-width: 900px) {
+    .about { grid-template-columns: 1fr; gap: 28px; }
+    .photo { max-width: 160px; }
+  }
+  @media (max-width: 680px) {
+    .wrap { padding-inline: 18px; }
+    .nav ul { display: none; }
+    .hero .role { font-size: 12px; letter-spacing: .12em; }
+    section.block { padding: 84px 0; }
+    .projects, .glance, .history > div { grid-template-columns: 1fr; }
+    .history h3 { padding-top: 0; }
+    .tl { grid-template-columns: 1fr; }
+    .tl h4 { padding-top: 0; }
+    .tl li { grid-template-columns: 1fr; }
+    .tl li time, .tl li em { grid-column: 1; grid-row: auto; text-align: left; }
+    .skills > div { grid-template-columns: 1fr; gap: 4px; }
+    .card h3 { font-size: 23px; }
+    .tags { margin-left: 0; justify-content: flex-start; }
+    .closing .wrap { grid-template-columns: 1fr; }
+    .closing .links { margin-bottom: 24px; }
+    .closing .bow img { max-width: 200px; margin: 0 auto; }
+    .modal { padding: 0; }
+    .modal .sheet { border-radius: 0; min-height: 100%; }
+    .d-body { padding: 28px 18px calc(40px + env(safe-area-inset-bottom, 0px)); }
+    .d-meta { grid-template-columns: 1fr; }
+    .modal .close { top: calc(12px + env(safe-area-inset-top, 0px)); }
+    .fig.pair { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .lightbox { padding: 60px 8px 24px; }
+    .lightbox .lb-prev, .lightbox .lb-next { top: auto; bottom: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal, .hero .role, .hero .contact { opacity: 1; transform: none; }
+    .hero h1 .line > span { transform: none; }
+  }
+  @media print {
+    .nav, .hero canvas, .modal, .lightbox { display: none; }
+    .hero { min-height: auto; padding: 40px 0; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">PARK JONG HWA</a>
+    <ul>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#history">HISTORY</a></li>
+    </ul>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="rays" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="role">SW · AI ENGINEER</p>
+    <h1>
+      <span class="line"><span>PARK</span></span>
+      <span class="line"><span>JONG HWA</span></span>
+    </h1>
+    <div class="contact">
+      <a href="mailto:janjonghwa@gmail.com" title="janjonghwa@gmail.com">Email ↗</a>
+      <a href="https://github.com/Janjonghwa" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <h2 class="sec-title reveal"><small>01</small>About</h2>
+    <div class="about">
+      <div class="photo reveal"><img src="photo.jpg" alt="박종화 증명사진"></div>
+      <div class="reveal">
+        <div class="id">
+          <h3>박종화<small>SW · AI Engineer</small></h3>
+          <ul>
+            <li><span>EMAIL</span><a href="mailto:janjonghwa@gmail.com">janjonghwa@gmail.com</a></li>
+            <li><span>GITHUB</span><a href="https://github.com/Janjonghwa" target="_blank" rel="noopener">github.com/Janjonghwa</a></li>
+          </ul>
+        </div>
+        <div class="tl">
+          <h4>EDUCATION</h4>
+          <ul>
+            <li><b>서울시립대학교</b><time>2023.03 – 2026.02</time><span>공간정보공학과 졸업</span></li>
+            <li><b>한국교통대학교</b><time>2018.03 – 2023.02</time><span>컴퓨터정보공학전공</span></li>
+          </ul>
+        </div>
+        <div class="tl">
+          <h4>TRAINING</h4>
+          <ul>
+            <li><b>삼성청년 SW·AI 아카데미 (SSAFY) 15기</b><time>2026.01 – 현재</time><span>SW·AI 심화 교육과 팀 프로젝트</span><em>1,725시간</em></li>
+            <li><b>현대모비스 MOBIUS BOOTCAMP 1기</b><time>2025.09 – 2026.03</time><span>자동차 SW · AUTOSAR · CAN</span><em>160시간</em></li>
+            <li><b>한화비전 VEDA 2기</b><time>2025.03 – 2025.08</time><span>Vision's Edge Device Academy · 임베디드 리눅스 · Qt</span><em>700시간</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="skills">
+  <div class="wrap">
+    <h2 class="sec-title reveal"><small>02</small>Skills</h2>
+    <div class="skills reveal">
+      <div><h3>Language</h3><p>Python, C++, C, TypeScript</p></div>
+      <div><h3>AI · Vision</h3><p>PyTorch, OpenCV, TensorRT, ONNX, YOLO, VLM(Qwen · InternVL), scikit-learn, pandas</p></div>
+      <div><h3>3D · Spatial</h3><p>Blender, 카메라 캘리브레이션, SLAM, QGIS, ArcGIS</p></div>
+      <div><h3>Robotics · Embedded</h3><p>ROS 2, Nav2, Jetson, Raspberry Pi, STM32, Linux</p></div>
+      <div><h3>App · Web</h3><p>Qt / QML (PySide6), FastAPI, Django REST, Vue 3, Next.js</p></div>
+      <div><h3>DevOps · Network</h3><p>Docker, Jenkins, GitLab CI, AWS, TLS, RTSP, MQTT, WebRTC</p></div>
+      <div><h3>Automotive</h3><p>CAN, CANoe, CAPL, AUTOSAR</p></div>    </div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <div class="wrap">
+    <h2 class="sec-title reveal"><small>03</small>Projects</h2>
+    <div class="projects" id="project-list"></div>
+  </div>
+</section>
+
+<section class="block alt" id="history">
+  <div class="wrap">
+    <h2 class="sec-title reveal"><small>04</small>History</h2>
+    <div class="history">
+      <div class="reveal">
+        <h3>AWARDS</h3>
+        <ul>
+          <li><b>SSAFY AI 챌린지 최우수상</b><time>2026.04</time><span>192팀 중 1위 · 삼성청년SW·AI아카데미</span></li>
+          <li><b>서울시 빅데이터캠퍼스 공모전 특별상</b><time>2025.10</time><span>서울특별시장상 · 숙명여대 사업단장상</span></li>
+          <li><b>드론 3종교육 최우수상</b><time>2025.01</time><span>서울시립대 공과대학장상</span></li>
+          <li><b>공공데이터 활용 아이디어 공모전 대상</b><time>2024.08</time><span>서울시립대 총장상</span></li>
+          <li><b>도시과학 공동작품전 우수상</b><time>2024.06</time><span>GeoAI데이터학회장상</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3>CERTIFICATES</h3>
+        <ul>
+          <li><b>초경량비행장치 무인멀티콥터 3종</b><time>2025.02</time><span>한국교통안전공단</span></li>
+          <li><b>컴퓨터활용능력 1급</b><time>2021.04</time><span>대한상공회의소</span></li>
+          <li><b>한국사능력검정 1급</b><time>2021.02</time><span>국사편찬위원회</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3>ACTIVITIES</h3>
+        <ul>
+          <li><b>Google AI Essentials 수료</b><time>2026.03</time><span>고용노동부 · 구글코리아</span></li>
+          <li><b>CANoe Workshop</b><time>2026.01</time><span>벡터코리아 아카데미 · CAN 통신·CAPL</span></li>
+          <li><b>연합봉사동아리 AMIS 회장</b><time>2024.01 – 2024.07</time><span>보육원 아동 교육봉사 · 활동 2023.03 – 2025.12 · 누적 200시간+</span></li>
+          <li><b>육군 병장 만기제대</b><time>2019.03 – 2020.10</time><span>대형차량운전병 · 11.5t 트럭 수송</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>끝까지 봐주셔서<br>감사합니다.</h2>
+      <p>궁금한 점이 있다면 편하게 연락 주세요.</p>
+      <div class="links">
+        <a href="mailto:janjonghwa@gmail.com" title="janjonghwa@gmail.com">Email ↗</a>
+        <a href="https://github.com/Janjonghwa" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="bow reveal"><img src="images/profile-bow.jpg" alt="인사하는 박종화" loading="lazy"></div>
+  </div>
+</section>
+<footer><div class="wrap">© 2026 Park Jong Hwa</div></footer>
+
+<!-- 프로젝트 상세 모달 -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="d-title">
+  <div class="backdrop" data-close></div>
+  <article class="sheet">
+    <button class="close" type="button" aria-label="닫기" data-close>✕</button>
+    <div id="detail"></div>
+  </article>
+</div>
+
+<!-- 사진 크게 보기 -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button class="lb-close" type="button" aria-label="닫기">✕</button>
+  <button class="lb-prev" type="button" aria-label="이전 사진">‹</button>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+  <button class="lb-next" type="button" aria-label="다음 사진">›</button>
+</div>
+
+<script>
+/* ───────── 프로젝트 데이터 ─────────
+   cover: 카드 썸네일이자 상세 맨 위 미디어(같은 것을 씀). 영상이면 [mp4, 포스터].
+   상세 구성은 노션 프로젝트 페이지 템플릿(개요 → 나의 담당 역할 및 수행 내용 → 주요 성과 및 역량)을 따르고,
+   figs 는 개요 바로 아래에 설명과 함께 들어가는 그림입니다. 그림 하나: {src | video, title, desc, mine?}, 두 장 나란히: {pair: [..], title, desc} */
+const V = 'images/video/';
+const PROJECTS = [
+  {
+    id: 'simai',
+    badge: '진행 중',
+    cover: { img: 'images/simai-cover.jpg', thumb: 'images/thumb/simai-cover.jpg' },
+    org: 'SSAFY 자율 프로젝트', team: '6인', period: '2026.10 – 현재',
+    title: 'SimAI',
+    what: '카메라 4대로 작업자를 3D 추적하는 건설 안전 관제 플랫폼',
+    did: ['카메라 4대의 영상을 하나의 3D 좌표로 합치는 추적 파이프라인 구현', '위험 구역 진입, 고소 작업, 낙상 의심 등 위험 판정 규칙 구현', '최대 10명을 실시간으로 처리하는 계산 구조 설계'],
+    tags: ['Python', 'OpenCV', 'TensorRT', 'Docker'],
+    detail: {
+      kicker: 'SSAFY 15기 자율 프로젝트',
+      sub: '맥락 인지형 스마트 건설 안전 관제 플랫폼 (Smart Integrated Monitoring AI)',
+      info: [['기간', '2026.10 – 진행 중'], ['팀', 'Team Finale · 6인'], ['역할', '3D 추적 · 위험 판정 · 개발 인프라'], ['기술', 'Python, OpenCV, YOLO26-pose, TensorRT, FastAPI, Docker, Jenkins']],
+      overview: [
+        '건설 현장 사망사고의 52.3%는 떨어짐 사고입니다(국토안전관리원, 2025). 기존 CCTV 기반 비전 AI는 사람이 "어디에 있는지"는 알아도 높이와 맥락을 읽지 못해, 개구부까지 몇 m인지 같은 판단을 하지 못하고 오탐 때문에 경보가 꺼지는 일이 잦습니다.',
+        'SimAI는 고정 카메라 4대의 영상을 하나의 미터 단위 3D 공간으로 합쳐 작업자의 위치·높이·자세를 실시간으로 추적하고, 위험 구역 진입·가장자리 근접·고소 작업·낙상 의심을 판정해 현장 경보와 관제 화면, 반장 휴대폰으로 알립니다. 카메라나 보정 상태가 불확실하면 판정에 그 사실을 함께 표시해, 모르는 것을 안다고 판단하지 않도록 설계했습니다.'
+      ],
+      figs: [
+        { src: 'images/simai-arch.jpg', title: '시스템 아키텍처',
+          desc: '현장 노트북이 카메라 4대의 영상을 GPU 서버로 중계하면, GPU 서버에서 YOLO26-pose로 사람의 자세를 검출하고 카메라 간 추적·융합 후 실시간 위험 판정(LIVE Risk Engine)을 합니다. 판정 결과는 Spring Boot 서버를 거쳐 저장·전파되고, React·Three.js 3D 관제 뷰어와 반장 PWA, 워치로 전달됩니다.',
+          mine: '내 담당: 게이트웨이 노트북 · Tracking & Fusion · LIVE Risk Engine · Python Risk Engine · 배포·CI' }
+      ],
+      role: [
+        '<b>다중 카메라 3D 추적</b> — 카메라 4대에서 검출한 사람의 2D 자세를 같은 사람끼리 묶고, 삼각측량으로 미터 단위 3D 위치와 골격을 계산해 하나의 ID로 계속 추적하는 파이프라인 설계·구현',
+        '<b>실시간 처리 구조</b> — 10명이 동시에 움직이면 3D 계산이 초당 10회 목표를 넘기는 문제를 확인하고, 카메라 단위 일괄 처리와 벡터 연산으로 계산 구조를 다시 짜 목표 안에 맞춤',
+        '<b>위험 판정 엔진</b> — 위험 구역 진입, 가장자리 근접, 고소 작업, 낙상 의심, 진입 예측, 관측 상실, 감시 능력 저하 7가지 규칙과 경보 발생·해소 흐름 구현. 카메라 보정이 확정되지 않았으면 판정 범위를 넓히고 근거에 표시',
+        '<b>장애 대응</b> — 서버가 재시작돼도 진행 중이던 위험 이벤트를 이어가는 복구 구조, 현장 노트북과 GPU 서버 사이의 암호화 영상 중계와 시계 차이 보정',
+        '<b>카메라 보정</b> — 마커 없이 교실의 직선과 사람 자세로 카메라 내부·외부 파라미터를 추정하는 도구 개발',
+        '<b>개발 인프라</b> — 서버·AI·프론트가 같은 메시지 규격을 쓰도록 JSON Schema에서 코드를 자동 생성, Docker 이미지와 GPU 서버 자동 구성, 바뀐 코드에 영향받는 테스트만 골라 실행하는 Jenkins CI'
+      ],
+      result: [
+        '카메라 4대·최대 10명 환경에서 3D 추적과 위험 판정을 초당 10회 실시간 처리',
+        '촬영부터 위험 판정까지 목표 0.6초 안에서 동작 확인(실측 약 0.15초)',
+        '자동 테스트 5,000여 건으로 코드가 바뀌어도 판정 결과가 달라지지 않는지 검증',
+        '다중 카메라 기하와 실시간 시스템을 설계부터 검증까지 경험'
+      ],
+      links: []
+    }
+  },
+  {
+    id: 'sentinel',
+    cover: { video: V + 'sentinel-cover.mp4', poster: V + 'sentinel-cover.jpg' },
+    org: 'SSAFY AIoT 프로젝트', team: '6인', period: '2026.07 – 08',
+    title: 'Sentinel UGV',
+    what: '재난 현장을 먼저 탐사하는 자율주행 구조 지원 로봇',
+    did: ['LiDAR SLAM과 Nav2로 미지 공간 자율 탐사 구현', '사람 발견부터 접근·대화·보고까지 임무 흐름 제어', '통신이 끊기면 차량을 멈추는 안전 체인 구성'],
+    tags: ['ROS 2', 'Nav2', 'Jetson'],
+    detail: {
+      kicker: 'SSAFY 15기 AIoT 프로젝트',
+      sub: '자율주행 AI 재난 탐사 UGV',
+      info: [['기간', '2026.07.14 – 2026.08.11'], ['팀', '6인 (HW 2 · 비전 AI · 음성 AI · 백엔드 · 로봇 SW)'], ['역할', 'Robot SW · ROS 2'], ['기술', 'ROS 2 Humble, Nav2, SLAM Toolbox, Jetson Orin Nano, ESP32, GitLab CI']],
+      overview: [
+        '붕괴 건물처럼 구조대가 바로 들어가기 위험한 현장에서는 진입 전에 통로 상태, 요구조자의 위치와 상태, 2차 위험을 알기 어렵습니다.',
+        'Sentinel UGV는 로봇이 먼저 들어가 LiDAR로 지도를 만들며 스스로 탐사하고, 카메라로 사람을 찾으면 다가가 음성으로 상태를 묻습니다. 영상·지도·대화 결과는 관제 시스템에 하나의 임무 기록으로 남아, 구조대가 진입 전에 내부 정보를 확보할 수 있습니다. 주행·탐지는 차량의 Jetson에서, 음성 인식은 원격 GPU 서버에서 처리했습니다.'
+      ],
+      coverFig: { title: '자율 탐사 중 사람 발견과 접근',
+        desc: 'LiDAR로 지도를 만들며 탐사하다가 카메라에 사람이 일정 시간 잡히면 탐사 목표를 내려놓고 그 방향으로 다가가, 약 1.5~2m 앞에서 멈춘 뒤 음성으로 상태를 묻습니다.',
+        mine: '내 담당: 자율 탐사 · 접근 · 임무 흐름 제어' },
+      figs: [
+        { video: [V + 'sentinel-gcs.mp4', V + 'sentinel-gcs.jpg'], title: '관제 페이지',
+          desc: '로봇이 보내는 실시간 영상과 SLAM 지도, 센서·주행 상태를 한 화면에서 보고, 임무가 끝나면 이동 경로와 사람 발견 전후 영상·대화 기록을 다시 확인할 수 있습니다.' },
+        { src: 'images/sentinel-arch.jpg', title: '시스템 아키텍처',
+          desc: 'Jetson Orin Nano의 ROS 2 노드가 SLAM·탐사·주행·안전 제어·사람 탐지를 맡고, ESP32 두 대가 모터와 센서를 담당합니다. 음성은 원격 GPU 서버에서 인식하고, 관제 서버(Spring Boot)와 웹(Next.js)이 기록과 화면을 맡습니다.',
+          mine: '내 담당: 자율 탐사 · 임무 제어 · 안전 체인 · 녹화·스트리밍 · 관제 연동' }
+      ],
+      role: [
+        '<b>자율 탐사</b> — LiDAR로 지도를 만들며(SLAM) 아직 가보지 않은 경계로 이동하는 Frontier 탐사를 Nav2와 연동. 제자리 회전이 안 되는 전륜 조향 차량이라 회전반경을 고려하는 경로 계획(Smac Hybrid-A*)과 경로 추종(Regulated Pure Pursuit) 적용',
+        '<b>탐사 안정화</b> — 탐사 목표가 대부분 갈 수 없는 위치로 잡혀 탐사가 멈추던 문제를 Costmap 설정과 목표 선정 기준을 고쳐 해결, 엔코더·오도메트리 계산 오류 교정',
+        '<b>임무 제어</b> — 탐사 → 사람 발견 → 접근 → 음성 대화 → 관제 보고 → 임무 종료로 이어지는 임무 관리 노드 구현',
+        '<b>안전 체인</b> — 명령 선택, 속도 제한, 충돌 감시, 비상 차단 4단계 구성. 통신이 끊기거나 명령이 갱신되지 않으면 모터 정지',
+        '<b>녹화·관제 연동</b> — 사람 발견 전후 영상을 하나의 이벤트로 저장하는 녹화, WebRTC 실시간 영상과 관제 서버 연동',
+        '<b>CI·배포</b> — GitLab CI 작업 22개 중 17개 작성, Jetson 설치 스크립트와 서비스 자동 실행 구성'
+      ],
+      result: [
+        '실제 차량으로 탐사 시작부터 임무 종료까지 전체 시나리오 시연',
+        '실차 측정으로 명령 속도 대비 실제 속도 99%, 이동 거리 오차 3% 이내 확인',
+        '자동 테스트 941건을 코드 변경마다 실행, 팀 저장소 커밋 최다',
+        '센서·제어·ROS 2·AI·웹 관제를 잇는 로봇 시스템 통합 경험'
+      ],
+      links: [['GitHub', 'https://github.com/Janjonghwa/Sentinel-UGV'], ['전체 시연 영상', 'https://www.youtube.com/watch?v=guyA2-h8ZME']]
+    }
+  },
+  {
+    id: 'pave',
+    cover: { video: V + 'pave-cover.mp4', poster: V + 'pave-cover.jpg' },
+    org: 'SSAFY 특화 프로젝트', team: '5인', period: '2026.08 – 09',
+    title: 'PAVE',
+    what: '자율주행 알고리즘을 같은 조건에서 반복 검증하는 플랫폼',
+    did: ['PySide6 + QML 기반 실험·관제 GUI 설계와 구현', '실험 설정부터 주행·결과 확인까지 한 화면 흐름 구성', '더블클릭 한 번으로 끝나는 Windows 설치·실행기 제작'],
+    tags: ['PySide6', 'QML', 'ROS 2', 'CARLA'],
+    detail: {
+      kicker: 'SSAFY 15기 특화 프로젝트',
+      sub: 'Platform for Autonomous Vehicle Evaluation — 시나리오 기반 자율주행 안전성 검증·관제 플랫폼',
+      info: [['기간', '2026.08.25 – 2026.09.29'], ['팀', 'A203 · 5인'], ['역할', 'GUI · 배포 인프라'], ['기술', 'PySide6, Qt Quick/QML, ROS 2, CARLA, WSL, GitLab CI']],
+      overview: [
+        '자율주행 알고리즘은 기업·팀마다 검증 환경과 기준이 달라, 같은 알고리즘이라도 어떤 조건에서 돌렸는지에 따라 결과를 비교하기 어렵습니다.',
+        'PAVE는 누구의 자율주행 로직이든 공통 규격으로 등록해 같은 시나리오·같은 규칙으로 반복 실행하고, 국제 벤치마크(nuPlan·NAVSIM 등)를 참고한 PAVE Score로 비교하는 검증 플랫폼입니다. "실험은 쉽게, 조건은 같게, 평가는 공정하게"를 원칙으로, GUI 하나에서 실험 설정 → 주행 → 결과 확인이 이어지도록 만들었습니다.'
+      ],
+      coverFig: { title: 'LIVE 관제 화면',
+        desc: '주행 중에는 CARLA 3인칭 영상과 전방 카메라, 미니맵, 속도·TTC·최소 이격거리·완주율, 이벤트 흐름을 한 화면에서 실시간으로 확인합니다. 정지·비상 종료도 이 화면에서 바로 할 수 있습니다.',
+        mine: '내 담당: 화면 설계와 ROS 2 상태 연동' },
+      figs: [
+        { video: [V + 'pave-result.mp4', V + 'pave-result.jpg'], title: '실행 결과 화면',
+          desc: '주행이 끝나면 PAVE Score와 충돌 여부·최저 TTC·완주율 같은 지표, 시간순 이벤트 흐름을 보여주고, [AI 분석]을 누르면 감점 요인과 개선 제안을 카드로 정리합니다.' },
+        { pair: ['images/pave-bad.jpg', 'images/pave-good.jpg'], title: '알고리즘을 바꾸면 점수가 말해 준다',
+          desc: '같은 시나리오에서 장애물을 피하지 못한 로직은 40점, 피한 로직은 97점. 로직만 갈아 끼워 같은 조건에서 비교할 수 있습니다.' },
+        { src: 'images/pave-arch.jpg', title: '전체 아키텍처',
+          desc: 'CARLA 시뮬레이터와 ROS 2 브리지 위에서 시나리오·평가 모듈과 자율주행 로직이 돌고, GUI가 이 전체를 기동·관제·정리합니다.',
+          mine: '내 담당: GUI 전체 · 기동 흐름 · Windows 배포판' }
+      ],
+      role: [
+        '<b>GUI 설계·구현</b> — 기존 QWidget 구조를 PySide6 + Qt Quick/QML로 다시 설계해 Python(ROS 2 통신·데이터)과 QML(화면)을 분리. 새 실험 · LIVE · 결과 · 실험 기록 · 설정 화면 구현',
+        '<b>LIVE 관제 화면</b> — CARLA 주행 영상, 전방 카메라, 미니맵, 속도·TTC·최소 이격거리·완주율, 이벤트 흐름을 한 화면에 배치하고 ROS 2 상태를 실시간 반영',
+        '<b>결과 화면</b> — PAVE Score, 지표, 이벤트 흐름, AI 분석 카드와 재생·재실행 구현. 기동에 실패하면 어느 단계에서 멈췄는지 오류 코드로 표시',
+        '<b>배포판</b> — 저장소 없이 PAVE.exe 더블클릭만으로 WSL 설치, 빌드된 실행 환경 가져오기, CARLA 내려받기까지 끝내는 Windows 설치·실행기 제작',
+        '<b>협업 인프라</b> — GitLab CI 구성과 명세·계약 문서 관리'
+      ],
+      result: [
+        '명령어 입력 없이 설치부터 실험·결과 확인까지 GUI로 진행되는 심사용 배포판 완성',
+        '알고리즘 차이가 점수로 드러나는 검증 흐름을 실제 주행으로 시연',
+        '팀 저장소 커밋 1,000여 건으로 팀 내 최다'
+      ],
+      links: []
+    }
+  },
+  {
+    id: 'quadzone',
+    cover: { video: V + 'veda-cover.mp4', poster: V + 'veda-cover.jpg' },
+    org: '한화비전 VEDA', team: '4인', period: '2025.06 – 08',
+    title: '스쿨존 안전 모니터링',
+    what: 'CCTV와 센서로 과속·불법주정차·보행자를 감지하는 시스템',
+    did: ['Qt 관제 클라이언트 설계와 구현', '번호판 인식·추적 결과로 위반 이벤트 분류', '센서와 AI 데이터를 공유 메모리로 동기화'],
+    tags: ['Raspberry Pi', 'STM32', 'Qt'],
+    detail: {
+      kicker: '한화비전 VEDA(Vision\'s Edge Device Academy) 2기 최종 프로젝트',
+      sub: 'CCTV 기반 스쿨존 안전 모니터링 시스템 (QuadZone)',
+      info: [['기간', '2025.06 – 2025.08'], ['팀', '4각지대 · 4인'], ['역할', 'Qt 클라이언트 · 이벤트 처리'], ['기술', 'Raspberry Pi 4, STM32, IMX500, ONNX, TFLite, MQTT/TLS, RTSP, Qt']],
+      overview: [
+        '민식이법 이후에도 스쿨존 사고는 연 480건 이상 발생합니다. 불법 주정차 차량에 가려 아이를 늦게 보거나 과속하는 경우가 많지만, 단속 인력은 부족하고 CCTV는 사람이 직접 돌려봐야 해 실시간 대응이 어렵습니다.',
+        'Raspberry Pi 4와 STM32를 기반으로 AI 카메라·지자기 센서·LCD·스피커를 연동해 과속, 불법 주정차, 보행자 이벤트를 현장에서 바로 감지하고, 현장에는 경고 화면과 음성으로, 관제에는 영상과 이벤트 기록으로 알리는 시스템을 만들었습니다. 스쿨존 미니어처로 검증한 뒤 실제 스쿨존 도로 영상에도 적용해 확인했습니다.'
+      ],
+      coverFig: { title: '실제 스쿨존 도로 영상 테스트',
+        desc: '실제 스쿨존 도로 영상에 시스템을 적용한 장면입니다. 멈춘 차량을 같은 ID로 추적하다가 일정 시간 이상 머물면 불법 주정차로 판정해 오른쪽 실시간 알림에 띄웁니다. (차량 번호판은 가렸습니다)' },
+      figs: [
+        { video: [V + 'veda-speed.mp4', V + 'veda-speed.jpg'], title: '모형 도로 — 과속 차량 감지',
+          desc: '모형 차량이 도로에 묻힌 지자기 센서 두 개를 지나는 시간차로 속도를 계산하고, 기준을 넘으면 영상 속 차량과 매칭해 과속 알림을 띄웁니다.' },
+        { video: [V + 'veda-client.mp4', V + 'veda-client.jpg'], title: '모형 도로 — 불법 주정차 알림',
+          desc: '차량이 멈춰 있으면 실시간 영상 옆에 불법 주정차 알림이 쌓이고, 알림을 누르면 번호판 사진과 기록을 확인할 수 있습니다.',
+          mine: '내 담당: Qt 클라이언트 전체 설계와 UI' },
+        { pair: ['images/veda-hw.jpg', 'images/veda-arch.jpg'], title: '실물 장치와 시스템 구성',
+          desc: '카메라·LCD·스피커가 든 관제탑과 지자기 센서를 묻은 도로로 스쿨존을 재현했습니다. AI 카메라 → Raspberry Pi(공유 메모리·이벤트 분석) → MQTT·TCP·RTSP → Qt 클라이언트로 이어집니다.' }
+      ],
+      role: [
+        '<b>Qt 관제 클라이언트</b> — 전체 구조 설계와 UI/UX 구현. 실시간 영상, 이벤트 알림, 히스토리 조회와 번호판 사진 확인 화면',
+        '<b>이벤트 알림</b> — MQTT로 받은 이벤트를 알림창으로 띄우고, TCP 요청으로 객체 정보를 불러와 화면에 표시',
+        '<b>UI 반응성</b> — 시그널-슬롯 구조로 사용자 입력 처리와 화면 갱신 정리',
+        '<b>이벤트 분류</b> — AI 카메라의 추적·번호판 인식 결과를 받아 과속·불법주정차·보행자 이벤트로 분류',
+        '<b>센서 데이터 동기화</b> — 소켓 통신으로는 센서와 AI 데이터를 맞추는 데 3초 이상 걸려, 공유 메모리(shm) 방식으로 설계를 바꿔 1초 안에 처리',
+        '<b>관제 네트워크</b> — MQTT/TLS 이벤트 발행, RTSP 영상 스트리밍 연동'
+      ],
+      result: [
+        '이벤트 발생부터 관제 화면 표시까지 1초 이내, 30fps 영상 스트리밍',
+        '센서·카메라, 네트워크, Qt 응용까지 전 계층을 잇는 시스템 통합 경험'
+      ],
+      links: []
+    }
+  },
+  {
+    id: 'vqa',
+    badge: '🏆 1위',
+    cover: { img: 'images/vqa-award.jpg', thumb: 'images/thumb/vqa-award.jpg' },
+    org: 'SSAFY 15기', team: '5인', period: '2026.04',
+    title: 'SSAFY AI 챌린지',
+    what: '재활용품 사진에 대한 질문에 답하는 비전-언어 모델',
+    did: ['보기 순서를 바꿔 추론하는 TTA 실험', '모델별 예측 결과 비교와 최종 모델 선정', '질문 유형별 프롬프트 설계'],
+    award: '최우수상 · 192팀 중 1위',
+    tags: ['VLM', 'QLoRA', 'Qwen'],
+    detail: {
+      kicker: 'SSAFY 15기 AI 챌린지',
+      sub: '재활용품 이미지 기반 VQA(시각 질의응답) 모델',
+      awards: ['최우수상 · 192팀 중 전국 1위'],
+      info: [['기간', '2026.04.01 – 04.06 (6일)'], ['팀', '5인'], ['역할', 'TTA 실험 · 모델 선정 · 프롬프트'], ['기술', 'Qwen, InternVL, LoRA/QLoRA, Grounding DINO, SAM']],
+      overview: [
+        '재활용품 사진, 질문, 4지선다 보기가 주어지면 사진 속 단서를 근거로 정답을 고르는 VQA 모델을 만드는 대회입니다. SSAFY 15기 875명이 참가해 6일 동안 정확도(Accuracy)로 겨뤘고, 교육생들이 직접 찍은 재활용품 사진 약 1.4만 장으로 만든 퀴즈 데이터가 주어졌습니다. 물건의 개수·색상·재질·분리배출 방법처럼 질문 유형마다 모델이 틀리는 방식이 달랐습니다.',
+        '그래서 하나의 큰 모델에 기대기보다 오답을 유형별로 나눠 보고, 유형마다 맞는 모델과 추론 방법을 골라 조합하는 방향으로 접근해 192팀 중 1위를 했습니다.'
+      ],
+      figs: [
+        { src: 'images/vqa-leaderboard.jpg', title: '최종 리더보드', desc: '테스트 데이터 절반으로 매기는 Private 리더보드 최종 순위입니다. 정확도 0.97635로 1위, 2위(0.95467)와 약 2.2%p 차이입니다.' }
+      ],
+      role: [
+        '<b>보기 순서 TTA</b> — 같은 문제의 보기 순서를 바꿔 여러 번 추론하고 결과를 모아, 특정 보기 위치에 답이 쏠리는 편향 완화',
+        '<b>모델 선정</b> — 모델별 예측 결과를 질문 유형 단위로 비교해 최종 앙상블에 쓸 모델 선정',
+        '<b>프롬프트 엔지니어링</b> — 질문 유형별 프롬프트 설계와 개선'
+      ],
+      note: '팀 솔루션: Qwen LoRA 파인튜닝 → 확신도 기반 보수적 앙상블 → 취약 유형만 객체 탐지(DINO/SAM)로 재추론 → 질문 유형별 Qwen/InternVL 가중 앙상블',
+      result: [
+        'Private 리더보드 정확도 0.97635로 192팀 중 1위, 2위와 약 2.2%p 차이 — SSAFY AI 챌린지 최우수상',
+        '오답 분석을 바탕으로 문제 유형별로 추론 방법을 나누는 VLM 활용 경험'
+      ],
+      links: [['GitHub', 'https://github.com/Janjonghwa/Recycle_VQA_Challenge']]
+    }
+  },
+  {
+    id: 'heogaon',
+    cover: { video: V + 'heogaon-cover.mp4', poster: V + 'heogaon-cover.jpg' },
+    org: 'SSAFY × 카카오테크 AI 해커톤', team: '6인', period: '2026.06',
+    title: '허가온',
+    what: '창업 계획으로 필요한 인허가를 안내하는 AI 서비스',
+    did: ['Next.js와 FastAPI 연동, 화면 흐름 구현', '주소·건축물대장 공공 API 연동과 EC2 배포'],
+    award: '본선 진출 · 103팀 중 6팀',
+    tags: ['Next.js', 'FastAPI'],
+    detail: {
+      kicker: 'SSAFY × 카카오테크 AI 해커톤',
+      sub: '소상공인을 위한 AI 인허가 사전진단 서비스',
+      awards: ['본선 진출 · 103팀 중 6팀'],
+      info: [['기간', '2026.06'], ['팀', '허가온앤온 · 6인'], ['역할', '프론트–백엔드 연동 · 외부 API · 배포'], ['기술', 'Next.js, FastAPI, 지식 그래프, AWS EC2']],
+      overview: [
+        '처음 가게를 여는 소상공인은 건축과·보건소·세무서 등 여러 부서와 서류를 스스로 찾아 순서대로 처리해야 합니다. 전자정부 이용자의 82.4%가 "복잡하고 많은 신청 절차"를 가장 큰 어려움으로 꼽습니다.',
+        '허가온은 "망원동에서 15평 카페를 열고 싶어요"처럼 창업 계획을 입력하면 위치·업종 정보를 뽑아 부족한 것만 다시 묻고, 건축물대장을 조회해 그 자리에서 영업이 가능한지 먼저 진단합니다. 이어서 필요한 서류를 소요 시간과 선행 관계에 맞춰 순서대로 안내하고, 작성 가이드와 진행 현황까지 관리합니다.'
+      ],
+      coverFig: { title: '창업 계획 입력부터 영업 가능 여부 진단까지',
+        desc: '열고 싶은 가게를 자연어로 입력하면 업종·판매 품목을 파악해 부족한 정보만 다시 묻고, 주소를 검색해 건축물대장을 불러온 뒤 그 자리에서 영업이 가능한지 근거와 함께 안내합니다.',
+        mine: '내 담당: 화면 흐름 연동 · 주소·건축물대장 API' },
+      figs: [
+        { pair: ['images/heogaon-flow.jpg', 'images/heogaon-guide.jpg'], title: '그래프 기반 AI와 서류 작성 가이드',
+          desc: '법령·정부 문서에서 뽑은 서류·선행 절차·담당 부서 관계를 지식 그래프로 만들어 누락 없이 필요한 서류를 찾고, 서류마다 항목별 작성 가이드와 발급처를 안내합니다.' }
+      ],
+      role: [
+        '<b>서비스 연동</b> — Next.js–FastAPI 요청·응답 구조와 정보 수집 → 진단 → 서류 안내 화면 전환 연결',
+        '<b>외부 API</b> — 카카오 주소 검색, 도로명주소, 건축물대장 API 연동. 인증·CORS·환경변수 문제 해결',
+        '<b>배포</b> — AWS EC2 배포 환경 구성과 검증',
+        '<b>지식 그래프</b> — 법령·정부 문서에서 뽑은 서류·선행 절차·담당 부서 관계로 결과를 만드는 파이프라인 구축 참여'
+      ],
+      result: [
+        '노드 2,069개·관계 3,429개 지식 그래프 기반 서비스 구현',
+        '103개 팀 중 6개 팀이 오르는 본선 진출'
+      ],
+      links: [['GitHub', 'https://github.com/Janjonghwa/HEOGAONv3'], ['전체 시연 영상', 'https://youtu.be/qiv1yjfYUZQ']]
+    }
+  },
+  {
+    id: 'alphapick',
+    cover: { img: 'images/alphapick-3.jpg', thumb: 'images/thumb/alphapick-3.jpg' },
+    org: 'SSAFY 관통 프로젝트', team: '2인 · 팀장', period: '2026.05 – 06',
+    title: 'AlphaPick',
+    what: '정량 지표 기반 국내 주식 스크리닝 서비스',
+    did: ['팀장으로 사용자 흐름과 UI/UX 설계', '스크리닝 대시보드와 종목 리포트 구현', 'AI 종목 코멘트에 응답 검증과 캐시 적용'],
+    tags: ['Vue 3', 'Django'],
+    detail: {
+      kicker: 'SSAFY 15기 관통 프로젝트',
+      sub: '정량 데이터 기반 국내 주식 분석·스크리닝 서비스',
+      info: [['기간', '2026.05 – 2026.06'], ['팀', '2인'], ['역할', '팀장 · 프론트엔드 · AI 기능'], ['기술', 'Vue 3, Vite, Tailwind CSS, Django REST Framework, SQLite']],
+      overview: [
+        '종목 추천 서비스는 "왜 이 종목인지" 근거를 충분히 보여주지 않고, 회사 가치와 매수 타이밍을 섞어 판단하게 만드는 경우가 많습니다.',
+        'AlphaPick은 국내 상장 종목을 회사 품질(Q)·시장 검증(M)·매수 타이밍(T) 세 축으로 따로 평가하고, 점수가 왜 그렇게 나왔는지 지표와 매매 신호로 보여주는 스크리닝 서비스입니다. 판단은 규칙 기반 알고리즘이 하고, 생성형 AI는 결과를 쉬운 말로 설명하는 역할만 맡도록 나눴습니다.'
+      ],
+      figs: [
+        { src: 'images/alphapick-1.jpg', title: '스크리닝 대시보드', desc: '섹터·테마와 Q/M/T 점수 조건으로 종목을 걸러내고 정렬해, 후보를 빠르게 좁힐 수 있습니다.' }
+      ],
+      role: [
+        '<b>기획·설계</b> — 팀장으로 핵심 사용자 흐름과 UI/UX 설계',
+        '<b>프론트엔드</b> — 스크리닝 대시보드(검색·점수 필터·섹터·테마), 종목 리포트(가격 차트, 점수 카드, 지표, 뉴스·공시), 관심 종목 화면 구현',
+        '<b>AI 기능</b> — 강점·약점·행동 3줄 AI 코멘트와 헤드라인 선택 구현. 기본 문구 → API 호출 → 응답 검증 → 캐시 순서로 처리해 외부 API에 문제가 생겨도 화면 유지',
+        '<b>연동</b> — 백엔드 API 연동과 전반적인 UI 보정'
+      ],
+      result: [
+        'Vercel·Railway에 배포까지 마친 웹 서비스 완성',
+        '알고리즘 결과를 사용자가 이해할 수 있는 화면과 설명으로 전달하는 설계 경험'
+      ],
+      links: [['서비스', 'https://alphapick.vercel.app/'], ['GitHub', 'https://github.com/Janjonghwa/Alphapick']]
+    }
+  },
+  {
+    id: 'fod',
+    cover: { img: 'images/fod-panel.jpg', thumb: 'images/thumb/fod-panel.jpg' },
+    org: '현대모비스 MOBIUS', team: '4인', period: '2026.01 – 03',
+    title: '클라우드 기반 FoD 서비스 및 OTA 프로세스',
+    what: '하드웨어 교체 없이 차량 기능을 구독·업데이트하는 SDV 서비스',
+    did: ['VIN 인증부터 기능 구매, vECU 활성화까지 구현', '구매 흐름 E2E 시나리오 설계와 검증'],
+    tags: ['CANoe', 'CAPL', 'Python'],
+    detail: {
+      kicker: '현대모비스 MOBIUS BOOTCAMP 1기 PBL',
+      sub: 'vECU 기능 추가를 위한 OTA 프로세스 구현',
+      info: [['기간', '2026.01 – 2026.03'], ['팀', 'Soda CAN · 4인'], ['역할', '기능 구매부 (C · Python · DB · CANoe)'], ['기술', 'CANoe, CAPL, Python, Oracle DB, AWS, Docker']],
+      overview: [
+        '기존에는 차량 기능을 바꾸거나 고치려면 서비스센터에 입고해야 했지만, SDV(소프트웨어 중심 차량)에서는 출고 후에도 OTA로 기능을 더하고 고칩니다. 기능을 필요할 때 구독하는 FoD(Feature on Demand)는 이 흐름의 핵심 수익 모델입니다.',
+        'CANoe 가상 차량 3종과 클라우드(Oracle DB·AWS)를 연동해, 운전자가 차 안에서 기능을 구매하면 vECU에 바로 활성화되고, 고장이 나면 최신 소프트웨어를 내려받아 복구되는 과정을 처음부터 끝까지 구현했습니다. 맨 위 화면은 구매 이력에 따라 색상 잠금이 풀리는 앰비언트 라이트 패널입니다.'
+      ],
+      figs: [
+        { src: 'images/fod-arch.jpg', title: '클라우드 기반 FoD·OTA 아키텍처',
+          desc: '클라우드(DB·서버)와 Python 미들웨어가 차량별 기능 목록과 구매 이력을 관리하고, OTA 명령이 각 차량의 TCU를 거쳐 CAN으로 vECU에 전달됩니다.',
+          mine: '내 담당: 기능 구매부 — VIN 인증, 기능 조회·구매, 활성화 신호' },
+        { src: 'images/fod-navi.jpg', title: '내비게이션 업데이트 패널',
+          desc: '고장을 주입하면 진단 후 최신 버전을 내려받아 업데이트로 복구하는 OTA 시나리오를 CANoe 패널에서 확인합니다.' }
+      ],
+      role: [
+        '<b>기능 구매 미들웨어</b> — VIN 기반 인증 후 클라우드 DB에서 차량별 구매 가능 기능 목록 조회, 구매 요청을 REST API로 DB에 반영',
+        '<b>CANoe 연동</b> — 기능 목록을 CANoe 패널에 표시하고, 구매가 끝나면 CAN 메시지로 vECU에 기능 활성화 신호 전달',
+        '<b>시나리오 검증</b> — VIN별 기능 조회, 구매한 기능 자동 필터링, 구매 성공·실패 처리 등 E2E 시나리오 설계와 검증'
+      ],
+      result: [
+        '요구사항 21개 기준 유닛 테스트 19항목, 시나리오 테스트 28개 모두 통과(팀)',
+        'A-SPICE V-Model에 따라 요구사항 분석부터 E2E 검증까지 개발 전 주기 경험'
+      ],
+      links: []
+    }
+  },
+  {
+    id: 'nbus',
+    badge: '🏆 수상 3회',
+    cover: { img: 'images/nbus-cover.jpg', thumb: 'images/thumb/nbus-cover.jpg' },
+    org: '공모전 · 3개 연속 프로젝트', team: '3인 · 2인', period: '2024.03 – 2025.10',
+    title: '서울시 N버스 연구',
+    what: '수요 예측 → 정책 제안 → 신규 노선 설계',
+    did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '승차벨·유연환승 등 정책 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
+    award: '서울특별시장상',
+    tags: ['Python', 'ML', 'QGIS'],
+    detail: {
+      kicker: '데이터 분석 연구 · 3개 연속 프로젝트',
+      sub: '서울시 심야버스(N버스) 공백지역 도출과 노선 제안',
+      awards: ['서울특별시장상', '서울시립대 총장상 (대상)', 'GeoAI데이터학회장상 (우수상)'],
+      info: [['기간', '2024.03 – 2025.10'], ['팀', 'STEP 1·2 3인 · STEP 3 2인'], ['기술', 'Python, scikit-learn, DBSCAN, 네트워크 분석, QGIS, ArcGIS']],
+      overview: [
+        'N버스는 2023년 이용객이 전년보다 27% 늘었지만, 노선이 한정돼 수요가 있는데도 버스가 서지 않는 지역이 남아 있습니다. 노선을 새로 만드는 것은 서울시 재정에 부담이 되기 때문에, 어디에 먼저 손을 써야 하는지 데이터로 근거를 만드는 것이 중요했습니다.',
+        '같은 문제를 세 번의 프로젝트에 걸쳐 이어서 다뤘습니다. ① 머신러닝으로 공백지역을 찾고, ② 신규 노선 없이 기존 인프라로 해소하는 정책을 제안하고, ③ 실제 이동 데이터(OD)로 신규 노선까지 설계했습니다.'
+      ],
+      parts: [
+        {
+          step: 'STEP 1 · 2024.06', short: '수요 예측', tag: '공백지역 4곳 도출', team: '3인 (김시연 · 박종화 · 함승우)',
+          title: '서울시 N버스 정류장 승하차수 예측을 통한 N버스 취약지역 선정',
+          award: '제38회 서울시립대 도시과학 공동작품전 우수상 — GeoAI데이터학회장상',
+          overview: 'N버스가 서지 않는 정류장의 승하차 수요를 머신러닝으로 예측해, 노선을 늘릴 때 먼저 검토해야 할 취약지역을 찾은 공간 데이터 분석 프로젝트',
+          figs: [{ pair: ['images/nbusA-model.jpg', 'images/nbusA-cluster.jpg'], title: '수요 예측과 군집 분석',
+            desc: '세 모델 중 랜덤포레스트로 미정차 정류장의 승하차를 예측하고(왼쪽), 예측 상위 1% 정류장 63곳을 DBSCAN으로 묶어 밀집 지역을 찾았습니다(오른쪽).' }],
+          role: [
+            '공공데이터 포털을 활용해 생활인구, 용도별 건물 면적, 대학·상급병원·응급실까지의 거리 등 정류장별 속성 데이터 수집과 전처리',
+            '선형회귀·랜덤포레스트·부스팅 모델을 비교해 랜덤포레스트 선정(R² 0.53)과 하이퍼파라미터 튜닝',
+            '예측 상위 1% 정류장 63곳을 DBSCAN으로 군집화해 취약지역 4곳 도출'
+          ],
+          result: [
+            '취약지역 4곳(금천구 가산동, 강남구 신사동, 성동구 성수동, 영등포구 문래동) 선정과 타당성 검증',
+            '대규모 공간 데이터 전처리, 머신러닝 수요 예측, 밀도 기반 군집 분석 역량 확보'
+          ]
+        },
+        {
+          step: 'STEP 2 · 2024.08', short: '정책 제안', tag: '승차벨 · 유연환승', team: '3인 (김시연 · 박종화 · 함승우)',
+          title: '공공데이터 분석을 활용한 N버스 공백지역 도출 및 새로운 노선 제안',
+          award: '2024 공공데이터 활용 서울시 아이디어 공모전 대상 — 서울시립대학교 총장상',
+          overview: 'STEP 1에서 찾은 공백지역을 신규 노선 없이 기존 인프라로 해소하는 데이터 기반 심야버스 운영 방안 제안',
+          figs: [{ pair: ['images/nbusB-bell.jpg', 'images/nbusB-transfer.jpg'], title: '승차벨과 유연환승',
+            desc: '승차 요청이 있을 때만 공백지역을 경유하는 승차벨(왼쪽), 환승이 많은 신촌오거리·동교동삼거리·종로2가에서 배차를 맞추는 유연환승(오른쪽)을 제안했습니다.' }],
+          role: [
+            '공공데이터 포털을 활용한 정류장별 교통 데이터 수집과 전처리',
+            '미정차 정류장 수요 예측과 군집 분석으로 공백지역 도출',
+            '승차벨, 유연환승시스템, 공백지역 경유 노선 수정안 설계'
+          ],
+          result: [
+            '신규 노선 없이 공백지역을 해소해 재정 부담을 줄이는 정책 대안으로 대상 수상',
+            '데이터 분석을 실제 정책 제안으로 연결하는 문제 해결 경험'
+          ]
+        },
+        {
+          step: 'STEP 3 · 2025.10', short: '노선 설계', tag: '신규 노선 2개', team: '2인 (김시연 · 박종화)',
+          title: 'OD 데이터와 인구통계학적 데이터를 활용한 N버스 노선 신설',
+          award: '2025 서울시 빅데이터캠퍼스 공모전 특별상 — 서울특별시장상 · 숙명여대 빅데이터혁신융합사업단장상',
+          overview: 'STEP 1·2에서 다루지 못한 실제 이동 경로를 야간 OD(출발지–도착지) 데이터로 분석해 심야 이동 수요의 핵심 축을 찾고, 교통망 설계(TNDP) 방법론으로 신규 N버스 노선 2개를 도출한 프로젝트',
+          figs: [{ pair: ['images/nbusC-hub.jpg', 'images/nbusC-r05.jpg'], title: '거점 선정과 두 번째 신규 노선',
+            desc: '이동량·잠재수요·매개 중심성을 합친 HubScore로 거점 후보를 고르고(왼쪽), 거점을 잇는 두 번째 노선 R05(구로디지털단지↔수유)를 기존 노선 위에 표시했습니다(오른쪽). 맨 위 그림은 야간 OD 백본 네트워크와 첫 번째 노선 R26입니다.' }],
+          role: [
+            '야간 OD·카드소비·생활인구·건물 데이터를 결합하고, 랜덤포레스트로 미정차 정류장 수요 예측(R² 0.98)',
+            '이동량·잠재수요·매개 중심성을 합친 HubScore로 거점 정류장 선정',
+            '후보 노선 220개를 양방향으로 통합한 뒤 커버리지·수요·효율·거리 지표로 평가해 최종 2개 선정'
+          ],
+          result: [
+            'R26(고속터미널↔수유, 40km·72개 정류장), R05(구로디지털단지↔수유, 34km·61개 정류장) 제안 — 기존 노선과 중복도 20% 미만',
+            '현재 N버스가 서지 않는 정류장 59곳에 심야 교통 제공 가능',
+            '네트워크 분석과 다단계 평가로 실제 노선을 설계하는 역량 확보'
+          ]
+        }
+      ],
+      links: []
+    }
+  }
+];
+
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const list = items => `<ul>${items.map(t => `<li>${t}</li>`).join('')}</ul>`;
+  const loop = (src, poster, extra = '') => `<video muted loop playsinline preload="metadata" poster="${poster}" ${extra}><source src="${src}" type="video/mp4"></video>`;
+
+  // 프로젝트 개요 맨 위 '한눈에 보기' — 문제 · 해결 · 핵심 · 결과
+  const GLANCE = {
+    simai: [['문제', '기존 CCTV AI는 사람의 높이와 맥락을 몰라 추락 위험을 판단하지 못함'], ['해결', '카메라 4대 영상을 하나의 3D 공간으로 합쳐 작업자를 미터 단위로 추적'], ['핵심 기능', '3D 위치·자세 추적, 7가지 위험 규칙 판정, 현장·관제·모바일 알림'], ['현재', '10명·초당 10회 실시간 처리 확인, 개발 진행 중']],
+    pave: [['문제', '팀마다 검증 환경이 달라 자율주행 알고리즘을 공정하게 비교하기 어려움'], ['해결', '같은 시나리오·같은 규칙으로 반복 실행하고 점수로 비교하는 플랫폼'], ['핵심 기능', '실험 설정 GUI, LIVE 관제, PAVE Score·AI 분석, 알고리즘 교체'], ['결과', '설치부터 결과 확인까지 GUI로 끝나는 배포판 완성']],
+    sentinel: [['문제', '붕괴 현장 진입 전에는 내부 통로와 요구조자 상태를 알 수 없음'], ['해결', '로봇이 먼저 들어가 지도를 만들고 사람을 찾아 상태를 확인'], ['핵심 기능', 'SLAM·Nav2 자율 탐사, 사람 탐지·접근·음성 대화, 관제 기록'], ['결과', '실제 차량으로 탐사부터 임무 종료까지 전체 시나리오 시연']],
+    heogaon: [['문제', '창업자가 여러 부서와 서류를 스스로 찾아 순서대로 처리해야 함'], ['해결', '창업 계획 한 문장으로 영업 가능 여부와 필요 서류를 안내'], ['핵심 기능', '대화형 정보 수집, 건축물대장 기반 사전 진단, 서류 순서·작성 가이드'], ['결과', '103팀 중 6팀 본선 진출']],
+    alphapick: [['문제', '종목 추천의 근거가 불투명하고 회사 가치와 매수 타이밍이 섞임'], ['해결', '품질·시장·타이밍 세 축 점수와 그 근거를 함께 공개'], ['핵심 기능', '스크리닝 대시보드, 종목 리포트, AI 해설 코멘트'], ['결과', 'Vercel·Railway 배포까지 완료']],
+    vqa: [['문제', '재활용품 사진 질문에 4지선다로 답하되, 질문 유형마다 오답 양상이 다름'], ['해결', '오답을 유형별로 분석해 유형마다 맞는 모델과 추론 방법을 조합'], ['핵심 기법', 'VLM 앙상블, 보기 순서 TTA, 취약 유형 재추론'], ['결과', '정확도 0.976으로 192팀 중 1위(2위와 2.2%p 차), 최우수상']],
+    fod: [['문제', '차량 기능을 추가하거나 고치려면 서비스센터 입고가 필요'], ['해결', '클라우드와 vECU를 연동해 기능 구독과 OTA 업데이트 구현'], ['핵심 기능', 'VIN 인증·기능 구매, CAN 기반 기능 활성화, 고장 진단·OTA 복구'], ['결과', '유닛 테스트 19항목·시나리오 28개 모두 통과']],
+    nbus: [['문제', 'N버스 수요는 늘지만 버스가 서지 않는 공백지역이 남아 있음'], ['해결', '수요 예측 → 정책 제안 → OD 기반 노선 설계, 3단계로 접근'], ['핵심 기법', '랜덤포레스트 수요 예측, DBSCAN 군집, 네트워크 분석(HubScore)'], ['결과', '서울특별시장상 등 수상 3회, 신규 노선 2개 제안']],
+    quadzone: [['문제', '스쿨존 위반을 사람이 CCTV로 일일이 확인해야 해 실시간 대응이 어려움'], ['해결', 'AI 카메라와 센서로 위반을 현장에서 자동 감지해 경고하고 기록'], ['핵심 기능', '과속·불법주정차·보행자 감지, 현장 LCD·음성 경고, Qt 관제'], ['결과', '이벤트 발생 1초 이내 관제 표시, 실제 도로 영상으로 검증']]
+  };
+  const glance = id => GLANCE[id] ? `<dl class="glance">${GLANCE[id].map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '';
+
+  // 최신순(시작 시점 기준)으로 정렬
+  const ORDER = ['simai', 'pave', 'sentinel', 'heogaon', 'alphapick', 'vqa', 'fod', 'quadzone', 'nbus'];
+  PROJECTS.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+
+  // 카드: 썸네일은 상세 맨 위와 같은 미디어
+  document.getElementById('project-list').innerHTML = PROJECTS.map(p => `
+    <button class="card reveal" type="button" data-id="${p.id}" aria-label="${esc(p.title)} 자세히 보기">
+      <div class="thumb">
+        ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
+        ${p.cover.video ? loop(p.cover.video, p.cover.poster, 'data-autoplay') : `<img src="${p.cover.thumb}" alt="" loading="lazy">`}
+      </div>
+      <p class="meta">${esc(p.org)} · <b>${esc(p.team)}</b> · ${esc(p.period)}</p>
+      <h3>${esc(p.title)}</h3>
+      <p class="what">${esc(p.what)}</p>
+      <ul class="did">${p.did.map(d => `<li>${esc(d)}</li>`).join('')}</ul>
+      <div class="foot">
+        ${p.award ? `<span class="award">🏆 ${esc(p.award)}</span>` : ''}
+        <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+      </div>
+    </button>`).join('');
+
+  // 본문 그림
+  const zoom = (src, cap) => `<button type="button" class="media" data-lb="${src}" data-cap="${esc(cap)}"><img src="${src}" alt="${esc(cap)}" loading="lazy"></button>`;
+  const fig = f => {
+    const media = f.video ? `<div class="media">${loop(f.video[0], f.video[1], 'data-autoplay')}</div>`
+      : f.pair ? f.pair.map(s => zoom(s, f.title)).join('')
+      : zoom(f.src, f.title);
+    return `<figure class="fig${f.pair ? ' pair' : ''}">${media}<figcaption><b>${esc(f.title)}</b>${esc(f.desc)}${f.mine ? `<span class="mine">${esc(f.mine)}</span>` : ''}</figcaption></figure>`;
+  };
+  const figs = arr => arr && arr.length ? `<div class="figs">${arr.map(fig).join('')}</div>` : '';
+  // 맨 위 영상도 본문에서 다시 설명 → '시연 및 주요 화면' 섹션으로 묶음
+  const showcase = (p, d) => {
+    const items = [...(p.cover.video && d.coverFig ? [{ video: [p.cover.video, p.cover.poster], ...d.coverFig }] : []), ...(d.figs || [])];
+    const title = items.some(f => f.video) ? '시연 및 주요 화면' : '주요 화면';
+    return items.length ? `<div class="d-sec"><h4>${title}</h4>${figs(items)}</div>` : '';
+  };
+  const paras = v => (Array.isArray(v) ? v : [v]).map(t => `<p>${esc(t)}</p>`).join('');
+
+  const renderDetail = p => {
+    const d = p.detail;
+    const hero = p.cover.video ? loop(p.cover.video, p.cover.poster, 'data-autoplay') : `<img src="${p.cover.img}" alt="${esc(p.title)}">`;
+    const body = d.parts ? `
+      <nav class="steps" aria-label="세 프로젝트 바로 가기">${d.parts.map((x, i) => `<a href="#part-${i}" data-jump="part-${i}"><small>${esc(x.step.split(' · ')[0])}</small><b>${esc(x.short)}</b><span>${esc(x.tag)}</span></a>`).join('')}</nav>
+      ${d.parts.map((x, i) => `
+      <section class="d-part" id="part-${i}">
+        <span class="step-label">${esc(x.step)} · ${esc(x.short)}</span>
+        <h5>${esc(x.title)}</h5>
+        <span class="award">🏆 ${esc(x.award)}</span>
+        <p class="part-team">팀 ${esc(x.team)}</p>
+        <div class="d-sec"><h4>프로젝트 개요</h4><p>${esc(x.overview)}</p></div>
+        <div class="d-sec"><h4>주요 화면</h4>${figs(x.figs)}</div>
+        <div class="d-sec"><h4>나의 담당 역할 및 수행 내용</h4>${list(x.role)}</div>
+        <div class="d-sec"><h4>주요 성과 및 역량</h4>${list(x.result)}</div>
+      </section>`).join('')}` : `
+      ${showcase(p, d)}
+      <div class="d-sec"><h4>나의 담당 역할 및 수행 내용</h4>${list(d.role)}${d.note ? `<p class="d-note">${esc(d.note)}</p>` : ''}</div>
+      <div class="d-sec"><h4>주요 성과 및 역량</h4>${list(d.result)}</div>`;
+    return `
+      <div class="d-hero">${hero}</div>
+      <div class="d-body">
+        <p class="d-kicker">${esc(d.kicker)}</p>
+        <h3 class="d-title" id="d-title">${esc(p.title)}</h3>
+        <p class="d-sub">${esc(d.sub)}</p>
+        ${d.awards ? `<div class="d-awards">${d.awards.map(a => `<span class="award">🏆 ${esc(a)}</span>`).join('')}</div>` : ''}
+        <dl class="d-meta">${d.info.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+        ${d.links.length ? `<div class="d-links">${d.links.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join('')}</div>` : ''}
+        <div class="d-sec"><h4>프로젝트 개요</h4>${glance(p.id)}${paras(d.overview)}</div>
+        ${body}
+      </div>`;
+  };
+
+  // 영상은 화면에 보일 때만 재생
+  const vio = new IntersectionObserver(es => es.forEach(e => {
+    if (reduce) return;
+    if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+  }), { threshold: 0.3 });
+  const watchVideos = root => root.querySelectorAll('video[data-autoplay]').forEach(v => vio.observe(v));
+  watchVideos(document.getElementById('project-list'));
+
+  // 모달 (주소의 #p-아이디 로 직접 열 수 있음)
+  const modal = document.getElementById('modal');
+  const detail = document.getElementById('detail');
+  let lastFocus = null;
+  const open = (id, push = true) => {
+    const p = PROJECTS.find(x => x.id === id);
+    if (!p) return;
+    lastFocus = document.activeElement;
+    detail.querySelectorAll('video').forEach(v => vio.unobserve(v));
+    detail.innerHTML = renderDetail(p);
+    modal.hidden = false;
+    modal.scrollTop = 0;
+    document.body.classList.add('locked');
+    watchVideos(detail);
+    requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('open')));
+    modal.querySelector('.close').focus({ preventScroll: true });
+    if (push) history.pushState({ p: id }, '', '#p-' + id);
+  };
+  const close = (pop = false) => {
+    if (modal.hidden) return;
+    modal.classList.remove('open');
+    document.body.classList.remove('locked');
+    setTimeout(() => { detail.querySelectorAll('video').forEach(v => vio.unobserve(v)); modal.hidden = true; detail.innerHTML = ''; }, reduce ? 0 : 300);
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+    if (!pop && location.hash.startsWith('#p-')) history.pushState(null, '', location.pathname + location.search + '#projects');
+  };
+  document.getElementById('project-list').addEventListener('click', e => {
+    const c = e.target.closest('.card'); if (c) open(c.dataset.id);
+  });
+  modal.addEventListener('click', e => {
+    const jump = e.target.closest('[data-jump]');
+    if (jump) { e.preventDefault(); document.getElementById(jump.dataset.jump).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); return; }
+    const lb = e.target.closest('[data-lb]');
+    if (lb) { openLb(lb); return; }
+    if (e.target.closest('[data-close]')) close();
+  });
+
+  // 사진 크게 보기 (같은 상세 안의 사진끼리 넘김)
+  const box = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-cap');
+  let group = [], idx = 0;
+  const showLb = () => { lbImg.src = group[idx].dataset.lb; lbImg.alt = group[idx].dataset.cap; lbCap.textContent = group[idx].dataset.cap; };
+  const openLb = btn => {
+    group = [...detail.querySelectorAll('[data-lb]')];
+    idx = group.indexOf(btn); showLb(); box.hidden = false;
+    box.querySelector('.lb-prev').hidden = box.querySelector('.lb-next').hidden = group.length < 2;
+    box.querySelector('.lb-close').focus();
+  };
+  const closeLb = () => { box.hidden = true; if (group[idx]) group[idx].focus(); };
+  const step = n => { idx = (idx + n + group.length) % group.length; showLb(); };
+  box.addEventListener('click', e => {
+    if (e.target.closest('.lb-prev')) step(-1);
+    else if (e.target.closest('.lb-next')) step(1);
+    else if (e.target === box || e.target.closest('.lb-close')) closeLb();
+  });
+  addEventListener('keydown', e => {
+    if (!box.hidden) {
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+      return;
+    }
+    if (e.key === 'Escape') close();
+  });
+
+  addEventListener('popstate', () => {
+    const m = location.hash.match(/^#p-(.+)/);
+    if (m) open(m[1], false); else close(true);
+  });
+  const initial = location.hash.match(/^#p-(.+)/);
+  if (initial) open(initial[1], false);
+
+  // 내비 배경 · 진행 바 · 현재 섹션
+  const nav = document.getElementById('nav');
+  const bar = document.getElementById('progress');
+  const links = [...document.querySelectorAll('.nav ul a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const onScroll = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    nav.classList.toggle('scrolled', scrollY > innerHeight * 0.8);
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+    let cur = -1;
+    secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === cur));
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // 스크롤 등장
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    if (el.matches('.card')) el.style.transitionDelay = (i % 2) * 100 + 'ms';
+    io.observe(el);
+  });
+
+  // 히어로 배경: 점 격자가 마우스(없으면 천천히 떠다니는 점)를 따라 밀려남
+  const cv = document.getElementById('rays'), ctx = cv.getContext('2d');
+  let W, H, wide;
+  const resize = () => {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight; wide = W > 760;
+    cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+  };
+  resize(); addEventListener('resize', resize);
+  let mx = null, my = null;
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    const r = cv.getBoundingClientRect();
+    mx = e.clientX - r.left; my = e.clientY - r.top;
+  });
+  document.addEventListener('pointerleave', () => { mx = my = null; });
+  // 글자 쪽을 어둡게 덮어 가독성 확보
+  const veil = () => {
+    const g = wide ? ctx.createLinearGradient(0, 0, W * 0.62, 0) : ctx.createLinearGradient(0, 0, 0, H * 0.8);
+    g.addColorStop(0, 'rgba(13,16,21,0.9)'); g.addColorStop(0.55, 'rgba(13,16,21,0.55)'); g.addColorStop(1, 'rgba(13,16,21,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  };
+  // 히어로가 화면 밖이면 그리기를 멈춤
+  let heroOn = true, raf = 0;
+  new IntersectionObserver(([e]) => {
+    heroOn = e.isIntersecting;
+    if (heroOn && !reduce && !raf) raf = requestAnimationFrame(draw);
+  }).observe(cv);
+  const draw = t => {
+    raf = 0;
+    if (!heroOn) return;
+    ctx.clearRect(0, 0, W, H);
+    const s = 26;
+    const [px, py] = mx !== null ? [mx, my] : [W * (0.72 + 0.16 * Math.sin(t / 2300)), H * (0.5 + 0.28 * Math.sin(t / 1700))];
+    for (let y = s / 2; y < H; y += s) for (let x = s / 2; x < W; x += s) {
+      const dx = x - px, dy = y - py, d = Math.hypot(dx, dy) || 1, k = Math.exp(-(d * d) / (2 * 120 * 120));
+      ctx.fillStyle = `rgba(${Math.round(140 - 18 * k)},${Math.round(160 + 7 * k)},255,${0.12 + 0.8 * k})`;
+      ctx.beginPath(); ctx.arc(x + dx / d * k * 16, y + dy / d * k * 16, 1 + k * 2.2, 0, Math.PI * 2); ctx.fill();
+    }
+    veil();
+    if (!reduce) raf = requestAnimationFrame(draw);
+  };
+  raf = requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
