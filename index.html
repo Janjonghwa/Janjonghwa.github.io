@@ -82,9 +82,10 @@
   .reveal.in { opacity: 1; transform: none; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 210px 1fr; gap: 56px; align-items: start; }
-  .photo { width: 100%; aspect-ratio: 3/4; border-radius: 12px; background: #e9edf2; overflow: hidden; border: 1px solid var(--line); }
-  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .about { display: grid; grid-template-columns: 210px 1fr; grid-template-areas: "photo id" "photo edu" ". train"; column-gap: 56px; align-items: start; }
+  .about .id { grid-area: id; } .about .edu { grid-area: edu; } .about .train { grid-area: train; }
+  .photo { grid-area: photo; align-self: stretch; position: relative; border-radius: 12px; background: #e9edf2; overflow: hidden; border: 1px solid var(--line); }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .id { padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
   .id h3 { margin: 0; font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.1; }
   .id h3 small { margin-left: 10px; font-size: 15px; font-weight: 600; color: var(--sub); letter-spacing: 0; }
@@ -110,7 +111,7 @@
 
   /* Project cards */
   .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; }
-  .card { display: flex; flex-direction: column; cursor: pointer; border: 0; padding: 0; background: none; text-align: left; font: inherit; color: inherit; }
+  .card { display: flex; flex-direction: column; height: 100%; cursor: pointer; border: 0; padding: 0; background: none; text-align: left; font: inherit; color: inherit; }
   .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 14px; }
   .thumb { position: relative; aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; margin-bottom: 22px; background: #1a2230; width: 100%; }
   .thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.1,1); }
@@ -126,14 +127,14 @@
   .thumb .badge.prize { background: rgba(255,244,220,.96); color: var(--gold); }
   .meta { margin: 0; font-size: 13px; color: var(--faint); }
   .meta b { color: var(--sub); font-weight: 600; }
-  .card .head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 6px; }
+  .foot { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
   .card h3 { margin: 0; font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; line-height: 1.25; }
   .card .what { margin: 6px 0 0; font-size: 16px; color: var(--sub); }
-  .card ul.did { margin: 18px 0 0; padding: 0; list-style: none; }
+  .card ul.did { margin: 18px 0 22px; padding: 0; list-style: none; }
   .card ul.did li { position: relative; padding-left: 14px; margin: 6px 0; font-size: 14.5px; }
   .card ul.did li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
   .award { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--gold); background: var(--gold-bg); padding: 5px 12px; border-radius: 8px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 0 auto; padding: 0; list-style: none; justify-content: flex-end; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
   .tags li { font-size: 12px; color: var(--sub); padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; }
 
   /* History */
@@ -254,8 +255,8 @@
   .d-part .figs { margin-top: 26px; }
 
   @media (max-width: 900px) {
-    .about { grid-template-columns: 1fr; gap: 28px; }
-    .photo { max-width: 160px; }
+    .about { grid-template-columns: 1fr; grid-template-areas: "photo" "id" "edu" "train"; row-gap: 0; }
+    .photo { max-width: 160px; aspect-ratio: 3/4; margin-bottom: 28px; }
   }
   @media (max-width: 680px) {
     .wrap { padding-inline: 18px; }
@@ -270,7 +271,6 @@
     .tl li time, .tl li em { grid-column: 1; grid-row: auto; text-align: left; }
     .skills > div { grid-template-columns: 1fr; gap: 4px; }
     .card h3 { font-size: 23px; }
-    .tags { margin-left: 0; justify-content: flex-start; }
     .closing .wrap { grid-template-columns: 1fr; }
     .closing .links { margin-bottom: 24px; }
     .closing .bow img { max-width: 200px; margin: 0 auto; }
@@ -331,22 +331,21 @@
     <h2 class="sec-title reveal"><small>01</small>About</h2>
     <div class="about">
       <div class="photo reveal"><img src="photo.jpg" alt="박종화 증명사진"></div>
-      <div class="reveal">
-        <div class="id">
+        <div class="id reveal">
           <h3>박종화<small>SW · AI Engineer</small></h3>
           <ul>
             <li><span>EMAIL</span><a href="mailto:janjonghwa@gmail.com">janjonghwa@gmail.com</a></li>
             <li><span>GITHUB</span><a href="https://github.com/Janjonghwa" target="_blank" rel="noopener">github.com/Janjonghwa</a></li>
           </ul>
         </div>
-        <div class="tl">
+        <div class="tl edu reveal">
           <h4>EDUCATION</h4>
           <ul>
             <li><b>서울시립대학교</b><time>2023.03 – 2026.02</time><span>공간정보공학과 졸업</span><em class="state">편입</em></li>
             <li><b>한국교통대학교</b><time>2018.03 – 2023.02</time><span>컴퓨터정보공학전공</span><em class="state">입학</em></li>
           </ul>
         </div>
-        <div class="tl">
+        <div class="tl train reveal">
           <h4>TRAINING</h4>
           <ul>
             <li><b>삼성청년 SW·AI 아카데미 (SSAFY) 15기</b><time>2026.01 – 현재</time><span>SW·AI 심화 교육과 팀 프로젝트</span><em>1,725시간</em></li>
@@ -354,7 +353,6 @@
             <li><b>한화비전 VEDA 2기</b><time>2025.03 – 2025.08</time><span>Vision's Edge Device Academy · 임베디드 리눅스 · Qt</span><em>700시간</em></li>
           </ul>
         </div>
-      </div>
     </div>
   </div>
 </section>
@@ -363,13 +361,13 @@
   <div class="wrap">
     <h2 class="sec-title reveal"><small>02</small>Skills</h2>
     <div class="skills reveal">
-      <div><h3>Language</h3><p>Python, C++, C, TypeScript</p></div>
-      <div><h3>AI · Vision</h3><p>PyTorch, OpenCV, TensorRT, ONNX, YOLO, VLM(Qwen · InternVL), scikit-learn, pandas</p></div>
-      <div><h3>3D · Spatial</h3><p>Blender, 카메라 캘리브레이션, SLAM, QGIS, ArcGIS</p></div>
-      <div><h3>Robotics · Embedded</h3><p>ROS 2, Nav2, Jetson, Raspberry Pi, STM32, Linux</p></div>
-      <div><h3>App · Web</h3><p>Qt / QML (PySide6), FastAPI, Django REST, Vue 3, Next.js</p></div>
-      <div><h3>DevOps · Network</h3><p>Docker, Jenkins, GitLab CI, AWS, TLS, RTSP, MQTT, WebRTC</p></div>
-      <div><h3>Automotive</h3><p>CAN, CANoe, CAPL, AUTOSAR</p></div>    </div>
+      <div><h3>프로그래밍 언어</h3><p>C, C++, Python, TypeScript</p></div>
+      <div><h3>AI · 데이터 처리</h3><p>PyTorch, Transformers, OpenCV, TensorRT, ONNX, TFLite, YOLO, VLM(Qwen · InternVL), Grounding DINO, scikit-learn, pandas, FFmpeg</p></div>
+      <div><h3>3D · 공간정보</h3><p>카메라 캘리브레이션, 다중 카메라 3D, SLAM, Blender, QGIS, ArcGIS</p></div>
+      <div><h3>임베디드 개발</h3><p>Jetson Orin Nano, STM32, Raspberry Pi, ROS 2, Nav2, Buildroot / Yocto, Linux Kernel · 디바이스 드라이버, ARM</p></div>
+      <div><h3>네트워크 · 통신</h3><p>TCP/IP, MQTT, RTSP, WebRTC, CAN, I2C, UART, OpenSSL(TLS)</p></div>
+      <div><h3>자동차 SW</h3><p>CANoe, CAPL, AUTOSAR, ISO 26262, A-SPICE, MATLAB / Simulink</p></div>
+      <div><h3>서비스 · DevOps</h3><p>FastAPI, Django REST, Vue 3, Next.js, Qt / PySide6, Docker, Jenkins, GitLab CI/CD, AWS EC2, Git, Linux</p></div>    </div>
   </div>
 </section>
 
@@ -463,7 +461,7 @@ const PROJECTS = [
     title: 'SimAI',
     what: '카메라 4대로 작업자를 3D 추적하는 건설 안전 관제 플랫폼',
     did: ['카메라 4대의 영상을 하나의 3D 좌표로 합치는 추적 파이프라인 구현', '위험 구역 진입, 고소 작업, 낙상 의심 등 위험 판정 규칙 구현', '최대 10명을 실시간으로 처리하는 계산 구조 설계'],
-    tags: ['Python', 'OpenCV', 'TensorRT', 'Docker'],
+    tags: ['Python', 'NumPy', 'OpenCV', 'Docker'],
     detail: {
       kicker: 'SSAFY 15기 자율 프로젝트',
       sub: '맥락 인지형 스마트 건설 안전 관제 플랫폼 (Smart Integrated Monitoring AI)',
@@ -501,7 +499,7 @@ const PROJECTS = [
     title: 'Sentinel UGV',
     what: '재난 현장을 먼저 탐사하는 자율주행 구조 지원 로봇',
     did: ['LiDAR SLAM과 Nav2로 미지 공간 자율 탐사 구현', '사람 발견부터 접근·대화·보고까지 임무 흐름 제어', '통신이 끊기면 차량을 멈추는 안전 체인 구성'],
-    tags: ['ROS 2', 'Nav2', 'Jetson'],
+    tags: ['ROS 2', 'Nav2', 'SLAM', 'Jetson'],
     detail: {
       kicker: 'SSAFY 15기 AIoT 프로젝트',
       sub: '자율주행 AI 재난 탐사 UGV',
@@ -544,7 +542,7 @@ const PROJECTS = [
     title: 'PAVE',
     what: '자율주행 알고리즘을 같은 조건에서 반복 검증하는 플랫폼',
     did: ['PySide6 + QML 기반 실험·관제 GUI 설계와 구현', '실험 설정부터 주행·결과 확인까지 한 화면 흐름 구성', '더블클릭 한 번으로 끝나는 Windows 설치·실행기 제작'],
-    tags: ['PySide6', 'QML', 'ROS 2', 'CARLA'],
+    tags: ['PySide6', 'QML', 'ROS 2', 'WSL'],
     detail: {
       kicker: 'SSAFY 15기 특화 프로젝트',
       sub: 'Platform for Autonomous Vehicle Evaluation — 시나리오 기반 자율주행 안전성 검증·관제 플랫폼',
@@ -587,7 +585,7 @@ const PROJECTS = [
     title: '스쿨존 안전 모니터링',
     what: 'CCTV와 센서로 과속·불법주정차·보행자를 감지하는 시스템',
     did: ['Qt 관제 클라이언트 설계와 구현', '번호판 인식·추적 결과로 위반 이벤트 분류', '센서와 AI 데이터를 공유 메모리로 동기화'],
-    tags: ['Raspberry Pi', 'STM32', 'Qt'],
+    tags: ['Qt', 'C++', 'MQTT', 'RTSP'],
     detail: {
       kicker: '한화비전 VEDA(Vision\'s Edge Device Academy) 2기 최종 프로젝트',
       sub: 'CCTV 기반 스쿨존 안전 모니터링 시스템 (QuadZone)',
@@ -630,7 +628,7 @@ const PROJECTS = [
     what: '재활용품 사진에 대한 질문에 답하는 비전-언어 모델',
     did: ['보기 순서를 바꿔 추론하는 TTA 실험', '모델별 예측 결과 비교와 최종 모델 선정', '질문 유형별 프롬프트 설계'],
     award: '최우수상 · 192팀 중 1위',
-    tags: ['VLM', 'QLoRA', 'Qwen'],
+    tags: ['Python', 'Qwen', 'InternVL'],
     detail: {
       kicker: 'SSAFY 15기 AI 챌린지',
       sub: '재활용품 이미지 기반 VQA(시각 질의응답) 모델',
@@ -666,7 +664,7 @@ const PROJECTS = [
     what: '창업 계획으로 필요한 인허가를 안내하는 AI 서비스',
     did: ['Next.js와 FastAPI 연동, 화면 흐름 구현', '주소·건축물대장 공공 API 연동과 EC2 배포'],
     award: '본선 진출 · 103팀 중 6팀',
-    tags: ['Next.js', 'FastAPI'],
+    tags: ['Next.js', 'FastAPI', 'AWS EC2'],
     detail: {
       kicker: 'SSAFY × 카카오테크 AI 해커톤',
       sub: '소상공인을 위한 AI 인허가 사전진단 서비스',
@@ -703,7 +701,7 @@ const PROJECTS = [
     title: 'AlphaPick',
     what: '정량 지표 기반 국내 주식 스크리닝 서비스',
     did: ['팀장으로 사용자 흐름과 UI/UX 설계', '스크리닝 대시보드와 종목 리포트 구현', 'AI 종목 코멘트에 응답 검증과 캐시 적용'],
-    tags: ['Vue 3', 'Django'],
+    tags: ['Vue 3', 'Tailwind CSS', 'Django REST'],
     detail: {
       kicker: 'SSAFY 15기 관통 프로젝트',
       sub: '정량 데이터 기반 국내 주식 분석·스크리닝 서비스',
@@ -735,7 +733,7 @@ const PROJECTS = [
     title: '클라우드 기반 FoD 서비스 및 OTA 프로세스',
     what: '하드웨어 교체 없이 차량 기능을 구독·업데이트하는 SDV 서비스',
     did: ['VIN 인증부터 기능 구매, vECU 활성화까지 구현', '구매 흐름 E2E 시나리오 설계와 검증'],
-    tags: ['CANoe', 'CAPL', 'Python'],
+    tags: ['Python', 'CANoe', 'CAPL', 'Oracle DB'],
     detail: {
       kicker: '현대모비스 MOBIUS BOOTCAMP 1기 PBL',
       sub: 'vECU 기능 추가를 위한 OTA 프로세스 구현',
@@ -771,7 +769,7 @@ const PROJECTS = [
     what: '수요 예측 → 정책 제안 → 신규 노선 설계',
     did: ['승하차 수요 예측과 군집 분석으로 공백지역 4곳 도출', '승차벨·유연환승 등 정책 대안 제안', 'OD 데이터로 신규 노선 2개 설계'],
     award: '서울특별시장상 포함 수상 3회',
-    tags: ['Python', 'ML', 'QGIS'],
+    tags: ['Python', 'scikit-learn', 'QGIS'],
     detail: {
       kicker: '데이터 분석 연구 · 3개 연속 프로젝트',
       sub: '서울시 심야버스(N버스) 공백지역 도출과 노선 제안',
@@ -871,10 +869,13 @@ const PROJECTS = [
         ${p.award ? `<span class="badge prize">🏆 ${esc(p.award)}</span>` : p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ''}
         ${p.cover.video ? loop(p.cover.video, p.cover.poster, 'data-autoplay') : `<img src="${p.cover.thumb}" alt="" loading="lazy">`}
       </div>
-      <p class="meta">${esc(p.org)} · <b>${esc(p.team)}</b> · ${esc(p.period)}</p>
-      <div class="head"><h3>${esc(p.title)}</h3><ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
+      <h3>${esc(p.title)}</h3>
       <p class="what">${esc(p.what)}</p>
       <ul class="did">${p.did.map(d => `<li>${esc(d)}</li>`).join('')}</ul>
+      <div class="foot">
+        <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+        <p class="meta">${esc(p.org)} · <b>${esc(p.team)}</b> · ${esc(p.period)}</p>
+      </div>
     </button>`).join('');
 
   // 본문 그림
