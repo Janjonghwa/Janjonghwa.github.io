@@ -108,6 +108,7 @@
   .skills > div { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
   .skills h3 { margin: 0; font-size: 16px; color: var(--ink); }
   .skills p { margin: 0; color: var(--body); }
+  .skills p b { font-weight: 600; color: var(--ink); }  /* 주력 기술 */
 
   /* Project cards */
   .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; }
@@ -368,14 +369,15 @@
   <div class="wrap">
     <h2 class="sec-title reveal"><small>02</small>Skills</h2>
     <div class="skills reveal">
-      <div><h3>프로그래밍 언어</h3><p>C, C++, C#, Python, TypeScript</p></div>
-      <div><h3>AI · 데이터 처리</h3><p>PyTorch, Transformers, OpenCV, TensorRT, ONNX, TFLite, YOLO, VLM(Qwen · InternVL), Grounding DINO, scikit-learn, pandas, FFmpeg</p></div>
-      <div><h3>3D · 공간정보</h3><p>카메라 캘리브레이션, 다중 카메라 3D, Blender, QGIS, ArcGIS</p></div>
-      <div><h3>임베디드 개발</h3><p>STM32 (ARM Cortex-M), Raspberry Pi, Jetson Orin Nano, Buildroot / Yocto, Linux Kernel · 디바이스 드라이버</p></div>
-      <div><h3>로보틱스</h3><p>ROS 2, Nav2, SLAM Toolbox</p></div>
-      <div><h3>네트워크 · 통신</h3><p>TCP/IP, MQTT, RTSP, WebRTC, CAN, I2C, UART, OpenSSL(TLS)</p></div>
-      <div><h3>자동차 SW</h3><p>CANoe, CAPL, AUTOSAR, ISO 26262, A-SPICE, MATLAB / Simulink</p></div>
-      <div><h3>서비스 · DevOps</h3><p>FastAPI, Django REST, Vue 3, Next.js, Qt / PySide6, Docker, Jenkins, GitLab CI/CD, AWS EC2, Git, Linux</p></div>    </div>
+      <div><h3>언어</h3><p><b>Python, C++</b>, C, C#, TypeScript</p></div>
+      <div><h3>AI · 비전</h3><p><b>PyTorch, OpenCV, YOLO</b>, TensorRT, ONNX, TFLite, VLM(Qwen, InternVL), scikit-learn, pandas</p></div>
+      <div><h3>3D · 공간정보</h3><p><b>카메라 캘리브레이션, 다중 카메라 3D 추적</b>, QGIS, ArcGIS, Blender</p></div>
+      <div><h3>로보틱스</h3><p><b>ROS 2, Nav2</b>, SLAM Toolbox</p></div>
+      <div><h3>임베디드</h3><p><b>Jetson Orin Nano, Raspberry Pi</b>, STM32, Buildroot/Yocto, Linux Device Driver</p></div>
+      <div><h3>네트워크 · 통신</h3><p><b>MQTT, RTSP, WebRTC</b>, TCP/IP, CAN, I2C, UART, TLS(OpenSSL)</p></div>
+      <div><h3>앱 · 웹</h3><p><b>Qt/QML(PySide6)</b>, FastAPI, Django REST, Spring Boot(Java), Vue 3, Next.js</p></div>
+      <div><h3>DevOps</h3><p><b>Docker, GitLab CI/CD</b>, Jenkins, AWS EC2, Git, Linux</p></div>
+      <div><h3>자동차 SW</h3><p><b>CANoe, CAPL</b>, AUTOSAR, ISO 26262, A-SPICE, MATLAB/Simulink</p></div>    </div>
   </div>
 </section>
 
