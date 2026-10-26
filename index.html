@@ -56,14 +56,14 @@
 
   /* 히어로 */
   .hero {
-    position: relative; min-height: 100vh; min-height: 100svh; background: var(--dark); color: #fff;
+    position: relative; min-height: calc(100vh - 240px); min-height: calc(100svh - 240px); background: var(--dark); color: #fff;
     display: flex; align-items: center; overflow: hidden;
-    padding-block: calc(var(--nav-h) + 40px) 90px;
+    padding-block: calc(var(--nav-h) + 32px) 56px;
   }
   .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
   .hero .wrap { position: relative; width: 100%; }
   .hero .role { margin: 0; font-size: 14px; letter-spacing: .18em; color: #8fa3bd; opacity: 0; animation: fade .8s .2s forwards; }
-  .hero h1 { margin: 18px 0 0; font-size: clamp(56px, 11vw, 140px); line-height: .95; font-weight: 800; letter-spacing: -.035em; }
+  .hero h1 { margin: 18px 0 0; font-size: clamp(52px, 9vw, 110px); line-height: .95; font-weight: 800; letter-spacing: -.035em; }
   .hero h1 .line { display: block; overflow: hidden; }
   .hero h1 .line > span { display: inline-block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.7,.1,1) forwards; }
   .hero h1 .line:nth-child(2) > span { animation-delay: .1s; }
@@ -636,7 +636,7 @@
   // 스크롤 등장
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+  }), { threshold: 0, rootMargin: '0px' });
   document.querySelectorAll('.reveal').forEach((el, i) => {
     if (el.matches('.card')) el.style.transitionDelay = (i % 2) * 100 + 'ms';
     io.observe(el);
