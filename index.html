@@ -157,14 +157,12 @@
 
   /* 마무리 · 연락 */
   .closing { padding: 110px 0 0; background: var(--bg); overflow: hidden; }
-  .closing .wrap { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: end; }
+  .closing .wrap { display: block; }
   .closing h2 { margin: 0; font-size: clamp(34px, 5vw, 56px); color: var(--ink); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
   .closing p { margin: 16px 0 0; color: var(--sub); font-size: 16px; }
   .closing .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 110px; }
   .closing .links a { padding: 11px 20px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--ink); transition: border-color .2s, background .2s; }
   .closing .links a:hover { border-color: var(--ink); background: var(--soft); }
-  .closing .bow { align-self: end; }
-  .closing .bow img { width: 100%; max-width: 300px; margin-left: auto; }
   footer { background: var(--dark); color: #69727e; padding: 22px 0 calc(22px + env(safe-area-inset-bottom, 0px)); font-size: 12px; }
 
   /* ───────── 상세 모달 ───────── */
@@ -280,9 +278,7 @@
     .tl li time, .tl li em { grid-column: 1; grid-row: auto; text-align: left; }
     .skills > div { grid-template-columns: 1fr; gap: 4px; }
     .card h3 { font-size: 23px; }
-    .closing .wrap { grid-template-columns: 1fr; }
-    .closing .links { margin-bottom: 24px; }
-    .closing .bow img { max-width: 200px; margin: 0 auto; }
+    .closing .links { margin-bottom: 84px; }
     .modal { padding: 0; }
     .modal .sheet { border-radius: 0; min-height: 100%; }
     .d-body { padding: 28px 18px calc(40px + env(safe-area-inset-bottom, 0px)); }
@@ -435,7 +431,6 @@
         <a href="https://github.com/Janjonghwa" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-    <div class="bow reveal"><img src="images/profile-bow.png" alt="인사하는 박종화" loading="lazy"></div>
   </div>
 </section>
 <footer><div class="wrap">© 2026 Park Jong Hwa</div></footer>
