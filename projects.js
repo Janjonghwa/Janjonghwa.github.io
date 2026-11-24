@@ -15,7 +15,7 @@ const PROJECTS = [
     tags: ['Python', 'TensorRT', 'Three.js', 'Docker'],
     detail: {
       kicker: 'SSAFY 15기 자율 프로젝트 · Smart Integrated Monitoring AI',
-      info: [['기간', '2026.10 – 2026.11'], ['팀 인원', '5인'], ['나의 역할', '기술팀장 · 시스템 설계와 AI·3D·인프라 구현'], ['기술', 'Python, YOLO26-pose, TensorRT, MapAnything·WorldMirror, vLLM(Cosmos3-Nano), GraphRAG, React·Three.js, Docker, AWS·RunPod, Jenkins']],
+      info: [['기간', '2026.10.01 – 2026.11.24'], ['팀 인원', '5인'], ['나의 역할', '기술팀장 · 시스템 설계와 AI·3D·인프라 구현'], ['기술', 'Python, YOLO26-pose, TensorRT, MapAnything·WorldMirror, vLLM(Cosmos3-Nano), GraphRAG, React·Three.js, Docker, AWS·RunPod, Jenkins']],
       overview: [
         '건설업 사망사고의 52.6%는 떨어짐 사고입니다. 현장마다 AI CCTV가 늘었지만, 2D 영상만 보는 AI는 사람이 "어디쯤" 있는지는 알아도 바닥에서 몇 m 위에 있는지, 개구부까지 얼마나 남았는지는 모릅니다. 매일 바뀌는 현장을 따라가지 못해 오탐이 쌓이고, 결국 경보를 꺼 두게 됩니다.',
         'SimAI는 추가 장비 없이 일반 CCTV 4대만으로 현장을 미터 단위 3D 공간으로 재현하고, 작업자를 3D 골격으로 추적해 위험 구역 진입·진입 예측·고소 작업·낙상 의심을 판정합니다. 판정 결과는 3D 관제 화면, 현장 경보음, 작업자 워치로 동시에 전달되고, 작업 전에는 현장 3D 맵 위에 AI가 위험 구역을 추천하고 법령 그래프로 TBM(작업 전 안전 대화) 보고서를 채웁니다. 카메라가 2대 미만에서만 본 관절은 지어내지 않고, 바닥을 모르면 높이를 0으로 채우지 않는 등 "모르면 비운다"를 판정 원칙으로 삼았습니다.'
