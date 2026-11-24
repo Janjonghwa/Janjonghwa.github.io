@@ -57,7 +57,7 @@ const PROJECTS = [
         'GPU 서버를 관제 화면에서 켜면 약 11분 만에 자동 준비·연결되는 운영 구조 완성(AWS 서울 g7e 기준)',
         '다중 카메라 기하, 실시간 판정, 3D 생성 AI, 운영 인프라를 하나의 제품으로 묶는 기술 리드 경험'
       ],
-      links: [['발표 자료', 'https://www.canva.com/design/DAHZ1mPPlQM/t00ik5eNYo2rG2IXSCHTdQ/'], ['전체 시연 영상', 'https://drive.google.com/file/d/182iwOd6QLzXNGd4zCcmO_RYIHq4tqZrU/view?usp=sharing']]
+      links: [['발표 자료', 'simai-deck.html'], ['발표 원본(Canva)', 'https://canva.link/tob8j0584boin80'], ['전체 시연 영상', 'https://drive.google.com/file/d/182iwOd6QLzXNGd4zCcmO_RYIHq4tqZrU/view?usp=sharing']]
     }
   },
   {
