@@ -35,6 +35,8 @@ const PROJECTS = [
           mine: '내 담당: 세팅 흐름 · 무마커 카메라 보정 · 맵 재사용' },
         { pair: ['images/simai-cams.jpg', 'images/simai-map.jpg'], title: 'CCTV 4대로 만든 3D 공간',
           desc: '같은 시점에 찍힌 CCTV 4장(왼쪽)을 왜곡 보정한 뒤 카메라 위치와 깊이를 추정해 하나의 3D 맵(오른쪽)으로 융합합니다. LiDAR 같은 추가 장비 없이 실측 대비 높이 오차 6.88 cm.' },
+        { video: [V + 'simai-site.mp4', V + 'simai-site.jpg'], title: '실제 시연 현장',
+          desc: '교실 단상에 테이프와 추락 주의 표지를 둘러 개구부가 있는 작업 현장처럼 꾸미고, 교실 네 귀퉁이에 거치대로 CCTV 4대를 약 2.4 m 높이에 세워 시연했습니다. 위의 3D 맵은 이 공간을 CCTV 사진만으로 재현한 것입니다.' },
         { src: 'images/simai-track.jpg', title: '다시점 삼각측량으로 3D 위치 측정',
           desc: '카메라마다 따로 붙인 2D 관절 ID를 카메라 쌍별로 검사해 같은 사람끼리 묶고, 다시점 삼각측량과 헝가리안 배정으로 하나의 3D ID를 유지합니다. 같은 키의 두 사람이 바닥과 단상에 서 있어도 높이로 구분하며, 검증 오차는 9 cm 이내입니다.' },
         { pair: ['images/simai-avatar.jpg', 'images/simai-graph.jpg'], title: '127관절 아바타와 법령 그래프',
