@@ -99,7 +99,7 @@ const PROJECTS = [
         '자동 테스트 941건을 코드 변경마다 실행, 팀 저장소 커밋 최다',
         '센서·제어·ROS 2·AI·웹 관제를 잇는 로봇 시스템 통합 경험'
       ],
-      links: [['GitHub', 'https://github.com/Janjonghwa/Sentinel-UGV'], ['전체 시연 영상', 'https://www.youtube.com/watch?v=guyA2-h8ZME']]
+      links: [['GitHub', 'https://github.com/Janjonghwa/Sentinel-UGV'], ['발표 자료', 'sentinel-deck.html'], ['전체 시연 영상', 'https://www.youtube.com/watch?v=guyA2-h8ZME']]
     }
   },
   {
@@ -217,7 +217,7 @@ const PROJECTS = [
         'Private 리더보드 정확도 0.97635로 192팀 중 1위, 2위와 약 2.2%p 차이 — SSAFY AI 챌린지 최우수상',
         '오답 분석을 바탕으로 문제 유형별로 추론 방법을 나누는 VLM 활용 경험'
       ],
-      links: [['GitHub', 'https://github.com/Janjonghwa/Recycle_VQA_Challenge']]
+      links: [['GitHub', 'https://github.com/Janjonghwa/Recycle_VQA_Challenge'], ['발표 자료', 'vqa-deck.html']]
     }
   },
   {
@@ -254,7 +254,7 @@ const PROJECTS = [
         '노드 2,069개·관계 3,429개 지식 그래프 기반 서비스 구현',
         '103개 팀 중 6개 팀이 오르는 본선 진출'
       ],
-      links: [['GitHub', 'https://github.com/Janjonghwa/HEOGAONv3'], ['전체 시연 영상', 'https://youtu.be/qiv1yjfYUZQ']]
+      links: [['GitHub', 'https://github.com/Janjonghwa/HEOGAONv3'], ['발표 자료', 'heogaon-deck.html'], ['전체 시연 영상', 'https://youtu.be/qiv1yjfYUZQ']]
     }
   },
   {
@@ -319,7 +319,7 @@ const PROJECTS = [
         '요구사항 21개 기준 유닛 테스트 19항목, 시나리오 테스트 28개 모두 통과(팀)',
         'A-SPICE V-Model에 따라 요구사항 분석부터 E2E 검증까지 개발 전 주기 경험'
       ],
-      links: []
+      links: [['발표 자료', 'fod-deck.html']]
     }
   },
   {
