@@ -182,7 +182,7 @@ const PROJECTS = [
         '이벤트 발생부터 관제 화면 표시까지 1초 이내, 30fps 영상 스트리밍',
         '센서·카메라, 네트워크, Qt 응용까지 전 계층을 잇는 시스템 통합 경험'
       ],
-      links: [['GitHub', 'https://github.com/VEDA-QuadZone'], ['전체 시연 영상', 'https://youtu.be/PqK8Bq12_y0']]
+      links: [['GitHub', 'https://github.com/VEDA-QuadZone'], ['발표 자료', 'quadzone-deck.html'], ['전체 시연 영상', 'https://youtu.be/PqK8Bq12_y0']]
     }
   },
   {
@@ -399,7 +399,7 @@ const PROJECTS = [
           ]
         }
       ],
-      links: []
+      links: [['STEP 1 발표 자료', 'nbus1-deck.html'], ['STEP 2 발표 자료', 'nbus2-deck.html'], ['STEP 3 발표 자료', 'nbus3-deck.html']]
     }
   }
 ];
