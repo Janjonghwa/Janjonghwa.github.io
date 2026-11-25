@@ -141,7 +141,7 @@ const PROJECTS = [
         '알고리즘 차이가 점수로 드러나는 검증 흐름을 실제 주행으로 시연',
         '팀 저장소 커밋 1,000여 건으로 팀 내 최다'
       ],
-      links: [['GitHub', 'https://github.com/Janjonghwa/pave']]
+      links: [['GitHub', 'https://github.com/Janjonghwa/pave'], ['발표 자료', 'https://github.com/Janjonghwa/pave/blob/dev/assets/presentation/PAVE_%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf']]
     }
   },
   {
