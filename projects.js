@@ -57,7 +57,7 @@ const PROJECTS = [
         'GPU 서버를 관제 화면에서 켜면 약 11분 만에 자동 준비·연결되는 운영 구조 완성(AWS 서울 g7e 기준)',
         '다중 카메라 기하, 실시간 판정, 3D 생성 AI, 운영 인프라를 하나의 제품으로 묶는 기술 리드 경험'
       ],
-      links: [['발표 자료', 'simai-deck.html'], ['발표 원본(Canva)', 'https://canva.link/tob8j0584boin80'], ['전체 시연 영상', 'https://youtu.be/DcXtVS5CMq4']]
+      links: [['GitHub', 'https://github.com/Janjonghwa/simai'], ['발표 자료', 'simai-deck.html'], ['발표 원본(Canva)', 'https://canva.link/tob8j0584boin80'], ['전체 시연 영상', 'https://youtu.be/DcXtVS5CMq4']]
     }
   },
   {
@@ -141,7 +141,7 @@ const PROJECTS = [
         '알고리즘 차이가 점수로 드러나는 검증 흐름을 실제 주행으로 시연',
         '팀 저장소 커밋 1,000여 건으로 팀 내 최다'
       ],
-      links: []
+      links: [['GitHub', 'https://github.com/Janjonghwa/pave']]
     }
   },
   {
